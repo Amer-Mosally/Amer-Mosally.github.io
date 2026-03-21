@@ -1,35 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Mail, Phone, Linkedin, MapPin, Briefcase, 
+  Mail, Phone, Linkedin, Briefcase, 
   GraduationCap, Award, BookOpen, Shield, 
-  Terminal, ChevronRight, ExternalLink, Code
+  Terminal, ChevronRight, ExternalLink, Code, Users
 } from 'lucide-react';
 
-// --- Data based on CV ---
+// --- Strict Data based ONLY on the provided CV ---
 const cvData = {
   personal: {
     name: "Amer Mosally",
-    title: "Cybersecurity Professional Services Consultant & Researcher",
+    title: "Cybersecurity Professional Services Consultant",
     email: "amer.mosally@gmail.com",
     phone: "+966 590 520 182",
-    linkedin: "LinkedIn",
-    location: "Riyadh, Saudi Arabia",
     profile: "Research-oriented Professional Services Consultant and published author specializing in emerging security paradigms. Co-authored a CRC Press book on Post-Quantum Cryptography and published an IEEE conference paper on enhancing intrusion detection via machine learning. Expert in automating security operations with a strong technical foundation in networks, containers, and penetration testing. Seeking a MMath in Computer Science at the University of Waterloo with a research interest in mobile and systems security."
   },
   experience: [
     {
       role: "Cybersecurity Professional Services Consultant",
       company: "Ingram Micro",
-      period: "2024/08 - Present",
+      period: "2024/08-Present",
       description: [
-        "Architected and deployed secure cybersecurity solutions for the Ministry of Health in Saudi Arabia, managing the entire lifecycle from design to optimization, significantly improving web and network security posture.",
+        "Architected and deployed secure cybersecurity solutions for the Ministry of Health in Saudi Arabia, managing the entire lifecycle from design to optimization, significantly improving web and network security posture and resilience against cyber threats.",
         "Developed automation workflows using Python and APIs to orchestrate investigative workflows and routine security tasks, reducing manual deployment and response effort by 90%."
       ]
     },
     {
       role: "Cybersecurity Engineer Intern",
       company: "Trend Micro",
-      period: "2024/01 - 2024/07",
+      period: "2024/01-2024/07",
       description: [
         "Implemented and managed Apex One and Deep Security to protect servers and endpoints against advanced malware and unauthorized access.",
         "Executed comprehensive security assessments and identified misconfigurations, recommending specific policy enhancements that optimized client defense-in-depth strategies."
@@ -37,16 +35,16 @@ const cvData = {
     },
     {
       role: "Teaching Assistant",
-      company: "KAUST Academy",
-      period: "2024/01 - 2024/03",
+      company: "King Abdullah University of Science and Technology Academy",
+      period: "2024/01-2024/03",
       description: [
-        "Delivered and helped in designing technical training curricula to over 100 participants, translating complex theoretical concepts into practical lab exercises."
+        "Delivered and helped in designing technical training curricula to over 100 participants, translating complex theoretical concepts into practical lab exercises that enhanced technical competencies in modern threat defense."
       ]
     },
     {
       role: "Teaching Assistant",
-      company: "King Fahd University of Petroleum and Minerals (KFUPM)",
-      period: "2023/08 - 2024/01",
+      company: "King Fahd University of Petroleum and Minerals",
+      period: "2023/08-2024/01",
       description: [
         "Delivered a comprehensive practical lab course on embedded systems and microcontroller programming (C/C++)."
       ]
@@ -54,15 +52,15 @@ const cvData = {
     {
       role: "Undergraduate Researcher",
       company: "Intelligent Secure Systems Center",
-      period: "2023/02 - 2023/06",
+      period: "2023/02-2023/06",
       description: [
-        "Worked on an edge-based video analytics system using Jetson Nano and AI-based models for real-time vehicle detection."
+        "Worked on an edge-based video analytics system using Jetson Nano and Al-based models for real-time vehicle detection."
       ]
     },
     {
       role: "Software Engineering Intern",
       company: "Safseer",
-      period: "2022/06 - 2022/08",
+      period: "2022/06-2022/08",
       description: [
         "Develop a web application using Streamlit framework for IoT devices that use LoRa technology."
       ]
@@ -72,22 +70,22 @@ const cvData = {
     {
       degree: "Bachelor of Science in Computer Engineering",
       institution: "King Fahd University Of Petroleum & Minerals",
-      period: "2018 - 2023",
+      period: "2018-2023",
       details: "Major Concentration: Cloud Computing | GPA: 3.68/4.00"
     }
   ],
   publications: [
     {
       title: "Improving Intrusion Detection System Accuracy Through PCA-Based Feature Reduction and Machine Learning Techniques",
-      publisher: "IEEE Cyber-AI: International Conference on Cybersecurity and AI-Based Systems",
+      publisher: "IEEE Cyber-Al: International Conference on Cybersecurity and Al-Based Systems",
       date: "2025/09",
-      description: "A peer-reviewed paper presenting a data processing and machine learning approach to improving anomaly-based Intrusion Detection Systems (IDS)."
+      description: "A peer-reviewed paper presents a dataprocessing and machine learning approach to improving anomaly-based Intrusion Detection Systems (IDS). The research paper reduces false positive rates and enhances detection accuracy."
     },
     {
       title: "Quantum Computing: A Journey into the Next Frontier of Information and Communication Security",
       publisher: "CRC Press, Taylor & Francis Group",
       date: "2024/12",
-      description: "Co-authored a book on Post-Quantum Cryptography (PQC), analyzing principal algorithm families and highlighting NIST role in cryptographic standardization."
+      description: "Co-authored a book on Post-Quantum Cryptography (PQC), analyzing principal algorithm families and highlighting NIST role in cryptographic standardization to secure systems against quantum threats."
     }
   ],
   certifications: [
@@ -104,16 +102,36 @@ const cvData = {
   ],
   awards: [
     {
-      title: "Best Entrepreneurial Award - Road Pothole Detection System",
-      issuer: "KFUPM",
+      title: "Road Pothole Detection System",
+      issuer: "Best Entrepreneurial Award, KFUPM",
       date: "2023/05",
-      description: "Developed an automated AI-powered road assessment system, deployed a scalable Docker-based pipeline on GCP."
+      description: "Developed an automated Al-powered road assessment system, featuring a custom edge computing device in a 3D-printed enclosure. Deployed a scalable Docker-based pipeline on Google Cloud Platform (GCP) to classify road damage severity, supporting regional smart city development."
     },
     {
       title: "Merit-Based Full Undergraduate Scholarship",
       issuer: "King Fahd University of Petroleum & Minerals",
       date: "2018/08",
       description: "Selected for a full-ride scholarship covering tuition and living expenses, awarded based on academic excellence."
+    }
+  ],
+  extracurriculars: [
+    {
+      role: "Vice President",
+      organization: "KFUPM Sumou Club",
+      period: "2022/08-2023/01",
+      description: "Led the planning and execution of seminars and workshops aimed at fostering student development, leadership, and career growth."
+    },
+    {
+      role: "Team Leader",
+      organization: "KFUPM Guidence Committee",
+      period: "2021/08-2022/05",
+      description: "Directed a specialized team responsible for overseeing financial operations and logistics, optimizing resource allocation and supporting strategic committee initiatives."
+    },
+    {
+      role: "Science Engagement Lead",
+      organization: "Aramco",
+      period: "2010/07-2010/09",
+      description: "Designed and conducted interactive scientific demonstrations, engaging festival attendees and enhancing public understanding of applied science."
     }
   ]
 };
@@ -211,31 +229,24 @@ export default function App() {
                   Amer Mosally.
                 </h1>
                 <h2 className="text-2xl md:text-3xl text-slate-400 font-light mt-2">
-                  I secure systems & automate defense.
+                  {cvData.personal.title}
                 </h2>
               </div>
               
-              <p className="text-lg text-slate-400 leading-relaxed max-w-2xl">
-                {cvData.personal.profile}
-              </p>
+              <div className="text-lg text-slate-400 leading-relaxed max-w-2xl space-y-4">
+                <p>{cvData.personal.profile}</p>
+              </div>
 
               <div className="flex flex-wrap gap-4 pt-4">
                 <a href={`mailto:${cvData.personal.email}`} className="flex items-center gap-2 text-slate-300 hover:text-cyan-400 transition-colors">
                   <Mail size={18} /> <span>{cvData.personal.email}</span>
                 </a>
-                <span className="flex items-center gap-2 text-slate-300">
-                  <Phone size={18} /> <span>{cvData.personal.phone}</span>
+                <span className="flex items-center gap-2 text-slate-300 hover:text-cyan-400 transition-colors cursor-pointer">
+                  <Linkedin size={18} /> <span>{cvData.personal.phone} in LinkedIn</span>
                 </span>
-                <span className="flex items-center gap-2 text-slate-300">
-                  <MapPin size={18} /> <span>{cvData.personal.location}</span>
-                </span>
-                <a href="#" className="flex items-center gap-2 text-slate-300 hover:text-cyan-400 transition-colors">
-                  <Linkedin size={18} /> <span>LinkedIn Profile</span>
-                </a>
               </div>
             </div>
             
-            {/* Visual Element replacing a photo for a more tech/hacker vibe */}
             <div className="w-64 h-64 md:w-80 md:h-80 relative flex-shrink-0">
               <div className="absolute inset-0 bg-gradient-to-tr from-cyan-600/20 to-emerald-600/20 rounded-full animate-pulse blur-3xl"></div>
               <div className="absolute inset-0 border border-slate-700 bg-slate-900 rounded-2xl flex items-center justify-center transform rotate-3 hover:rotate-0 transition-transform duration-500 overflow-hidden shadow-2xl">
@@ -244,8 +255,8 @@ export default function App() {
                  <div className="absolute bottom-4 left-4 right-4 bg-slate-950/80 p-3 rounded text-xs font-mono text-cyan-500 border border-slate-800">
                    <p className="text-emerald-500">$ whoami</p>
                    <p>amer_mosally</p>
-                   <p className="text-emerald-500 mt-1">$ cat skills.txt</p>
-                   <p className="text-slate-400 truncate">Cloud, PenTest, ML</p>
+                   <p className="text-emerald-500 mt-1">$ status</p>
+                   <p className="text-slate-400 truncate">Consultant & Researcher</p>
                  </div>
               </div>
             </div>
@@ -254,7 +265,7 @@ export default function App() {
 
         {/* Experience Section */}
         <section id="experience">
-          <SectionHeading icon={Briefcase} title="Professional Experience" />
+          <SectionHeading icon={Briefcase} title="Work Experience" />
           <div className="space-y-6">
             {cvData.experience.map((job, idx) => (
               <Card key={idx} className="relative overflow-hidden group">
@@ -281,7 +292,7 @@ export default function App() {
 
         {/* Publications Section */}
         <section id="publications">
-          <SectionHeading icon={BookOpen} title="Publications & Research" />
+          <SectionHeading icon={BookOpen} title="Publications" />
           <div className="grid md:grid-cols-2 gap-6">
             {cvData.publications.map((pub, idx) => (
               <Card key={idx} className="flex flex-col h-full">
@@ -302,7 +313,7 @@ export default function App() {
           
           {/* Certifications */}
           <section id="certifications">
-            <SectionHeading icon={Shield} title="Certifications" />
+            <SectionHeading icon={Shield} title="Certificates" />
             <div className="space-y-4">
               {cvData.certifications.map((cert, idx) => (
                 <div key={idx} className="flex items-center justify-between p-4 bg-slate-800/30 rounded-lg border border-slate-700/30 hover:bg-slate-800/60 transition-colors">
@@ -341,7 +352,7 @@ export default function App() {
 
             {/* Awards */}
             <section id="awards">
-              <SectionHeading icon={Award} title="Awards & Honors" />
+              <SectionHeading icon={Award} title="Awards" />
               <div className="space-y-4">
                 {cvData.awards.map((award, idx) => (
                   <div key={idx} className="border-l-2 border-cyan-500 pl-4 py-1">
@@ -352,6 +363,24 @@ export default function App() {
                       <span>{award.date}</span>
                     </div>
                     <p className="text-sm text-slate-400 leading-relaxed">{award.description}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Extracurriculars */}
+            <section id="extracurriculars">
+              <SectionHeading icon={Users} title="Extracurricular Activities" />
+              <div className="space-y-4">
+                {cvData.extracurriculars.map((activity, idx) => (
+                  <div key={idx} className="border-l-2 border-slate-700 pl-4 py-1">
+                    <h4 className="text-white font-bold">{activity.role}</h4>
+                    <div className="flex gap-2 text-sm text-cyan-400 mb-2">
+                      <span>{activity.organization}</span>
+                      <span className="text-slate-500">&bull;</span>
+                      <span className="text-slate-500">{activity.period}</span>
+                    </div>
+                    <p className="text-sm text-slate-400 leading-relaxed">{activity.description}</p>
                   </div>
                 ))}
               </div>
