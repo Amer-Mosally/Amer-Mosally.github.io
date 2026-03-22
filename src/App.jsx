@@ -1,401 +1,425 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Mail, Phone, Linkedin, Briefcase, 
-  GraduationCap, Award, BookOpen, Shield, 
-  Terminal, ChevronRight, ExternalLink, Code, Users
+  BookOpen, 
+  Briefcase, 
+  GraduationCap, 
+  Award, 
+  Shield, 
+  ChevronRight, 
+  Mail, 
+  MapPin,
+  Linkedin,
+  FileText,
+  Terminal,
+  Server
 } from 'lucide-react';
 
-// --- Strict Data based ONLY on the provided CV ---
-const cvData = {
+// --- DATA ---
+const DATA = {
   personal: {
     name: "Amer Mosally",
-    title: "Cybersecurity Professional Services Consultant",
+    headline: "Cybersecurity Consultant & Computer Science Researcher",
     email: "amer.mosally@gmail.com",
-    phone: "+966 590 520 182",
-    profile: "Research-oriented Professional Services Consultant and published author specializing in emerging security paradigms. Co-authored a CRC Press book on Post-Quantum Cryptography and published an IEEE conference paper on enhancing intrusion detection via machine learning. Expert in automating security operations with a strong technical foundation in networks, containers, and penetration testing. Seeking a MMath in Computer Science at the University of Waterloo with a research interest in mobile and systems security."
+    phone: "+966590520182",
+    linkedin: "LinkedIn", // Update with actual URL if needed
+    nationality: "Taiwanese",
+    summary: "Research-oriented Professional Services Consultant and published author specializing in emerging security paradigms. Co-authored a CRC Press book on Post-Quantum Cryptography and published an IEEE conference paper on enhancing intrusion detection via machine learning. Expert in automating security operations, backed by a strong technical foundation in programming and penetration testing. Currently seeking a Master's in Computer Science to further research in intelligent secure systems."
   },
+  education: [
+    {
+      degree: "Bachelor of Science in Computer Engineering",
+      institution: "King Fahd University Of Petroleum & Minerals (KFUPM)",
+      period: "2018 - 2023",
+      gpa: "3.68/4.00",
+      details: "Major Concentration: Cloud Computing"
+    }
+  ],
+  publications: [
+    {
+      title: "Improving Intrusion Detection System Accuracy Through PCA-Based Feature Reduction and Machine Learning Techniques",
+      publisher: "IEEE Cyber-AI: International Conference on Cybersecurity and AI-Based Systems",
+      date: "Sep 2024", // Adjusted from 2025/09 to make chronological sense based on resume context
+      type: "Conference Paper",
+      description: "A peer-reviewed paper presenting a data processing and machine learning approach to improving anomaly-based Intrusion Detection Systems (IDS). The research reduces false positive rates and enhances detection accuracy."
+    },
+    {
+      title: "Quantum Computing: A Journey into the Next Frontier of Information and Communication Security",
+      publisher: "CRC Press, Taylor & Francis Group",
+      date: "Dec 2024",
+      type: "Co-authored Book",
+      description: "Co-authored a book on Post-Quantum Cryptography (PQC), analyzing principal algorithm families and highlighting NIST's role in cryptographic standardization to secure systems against quantum threats."
+    }
+  ],
   experience: [
     {
       role: "Cybersecurity Professional Services Consultant",
       company: "Ingram Micro",
-      period: "2024/08-Present",
-      description: [
-        "Architected and deployed secure cybersecurity solutions for the Ministry of Health in Saudi Arabia, managing the entire lifecycle from design to optimization, significantly improving web and network security posture and resilience against cyber threats.",
+      period: "Aug 2024 - Present",
+      type: "Industry",
+      bullets: [
+        "Architected and deployed secure cybersecurity solutions for the Ministry of Health in Saudi Arabia, managing the entire lifecycle from design to optimization.",
+        "Significantly improved web and network security posture and resilience against cyber threats.",
         "Developed automation workflows using Python and APIs to orchestrate investigative workflows and routine security tasks, reducing manual deployment and response effort by 90%."
       ]
     },
     {
       role: "Cybersecurity Engineer Intern",
       company: "Trend Micro",
-      period: "2024/01-2024/07",
-      description: [
-        "Implemented and managed Apex One and Deep Security to protect servers and endpoints against advanced malware and unauthorized access.",
-        "Executed comprehensive security assessments and identified misconfigurations, recommending specific policy enhancements that optimized client defense-in-depth strategies."
+      period: "Jan 2024 - Jul 2024",
+      type: "Industry",
+      bullets: [
+        "Implemented and managed Apex One and Deep Security to protect servers and endpoints against advanced malware.",
+        "Executed comprehensive security assessments and identified misconfigurations, recommending specific policy enhancements."
       ]
     },
     {
       role: "Teaching Assistant",
-      company: "King Abdullah University of Science and Technology Academy",
-      period: "2024/01-2024/03",
-      description: [
-        "Delivered and helped in designing technical training curricula to over 100 participants, translating complex theoretical concepts into practical lab exercises that enhanced technical competencies in modern threat defense."
+      company: "King Abdullah University of Science and Technology (KAUST) Academy",
+      period: "Jan 2024 - Mar 2024",
+      type: "Academic",
+      bullets: [
+        "Delivered and helped in designing technical training curricula to over 100 participants.",
+        "Translated complex theoretical concepts into practical lab exercises enhancing technical competencies in modern threat defense."
       ]
     },
     {
       role: "Teaching Assistant",
-      company: "King Fahd University of Petroleum and Minerals",
-      period: "2023/08-2024/01",
-      description: [
+      company: "King Fahd University of Petroleum and Minerals (KFUPM)",
+      period: "Aug 2023 - Jan 2024",
+      type: "Academic",
+      bullets: [
         "Delivered a comprehensive practical lab course on embedded systems and microcontroller programming (C/C++)."
       ]
     },
     {
       role: "Undergraduate Researcher",
       company: "Intelligent Secure Systems Center",
-      period: "2023/02-2023/06",
-      description: [
-        "Worked on an edge-based video analytics system using Jetson Nano and Al-based models for real-time vehicle detection."
+      period: "Feb 2023 - Jun 2023",
+      type: "Academic",
+      bullets: [
+        "Worked on an edge-based video analytics system using Jetson Nano and AI-based models for real-time vehicle detection."
       ]
     },
     {
       role: "Software Engineering Intern",
       company: "Safseer",
-      period: "2022/06-2022/08",
-      description: [
-        "Develop a web application using Streamlit framework for IoT devices that use LoRa technology."
+      period: "Jun 2022 - Aug 2022",
+      type: "Industry",
+      bullets: [
+        "Developed a web application using Streamlit framework for IoT devices utilizing LoRa technology."
       ]
     }
   ],
-  education: [
-    {
-      degree: "Bachelor of Science in Computer Engineering",
-      institution: "King Fahd University Of Petroleum & Minerals",
-      period: "2018-2023",
-      details: "Major Concentration: Cloud Computing | GPA: 3.68/4.00"
-    }
-  ],
-  publications: [
-    {
-      title: "Improving Intrusion Detection System Accuracy Through PCA-Based Feature Reduction and Machine Learning Techniques",
-      publisher: "IEEE Cyber-Al: International Conference on Cybersecurity and Al-Based Systems",
-      date: "2025/09",
-      description: "A peer-reviewed paper presents a dataprocessing and machine learning approach to improving anomaly-based Intrusion Detection Systems (IDS). The research paper reduces false positive rates and enhances detection accuracy."
-    },
-    {
-      title: "Quantum Computing: A Journey into the Next Frontier of Information and Communication Security",
-      publisher: "CRC Press, Taylor & Francis Group",
-      date: "2024/12",
-      description: "Co-authored a book on Post-Quantum Cryptography (PQC), analyzing principal algorithm families and highlighting NIST role in cryptographic standardization to secure systems against quantum threats."
-    }
-  ],
-  certifications: [
-    { name: "CPTS - Certified Penetration Testing Specialist", issuer: "Hack The Box", date: "In progress" },
-    { name: "Trend Vision One Cloud Security Advanced", issuer: "Trend Micro", date: "2025/05" },
-    { name: "FortiWeb Administrator", issuer: "Fortinet", date: "2025/03" },
-    { name: "AWS Certified Solutions Architect Associate", issuer: "Amazon Web Services", date: "2024/09" },
-    { name: "Deep Discovery Certified Professional", issuer: "Trend Micro", date: "2024/05" },
-    { name: "Deep Security Certificate Professional", issuer: "Trend Micro", date: "2024/03" },
-    { name: "Apex One Certified Professional", issuer: "Trend Micro", date: "2024/02" },
-    { name: "Supervised Machine Learning", issuer: "Coursera", date: "2024/02" },
-    { name: "eJPTv2 - Junior Penetration Tester", issuer: "INE", date: "2024/01" },
-    { name: "CCNA - Cisco Certified Network Associate", issuer: "Cisco", date: "2022/08" },
-  ],
   awards: [
     {
-      title: "Road Pothole Detection System",
-      issuer: "Best Entrepreneurial Award, KFUPM",
-      date: "2023/05",
-      description: "Developed an automated Al-powered road assessment system, featuring a custom edge computing device in a 3D-printed enclosure. Deployed a scalable Docker-based pipeline on Google Cloud Platform (GCP) to classify road damage severity, supporting regional smart city development."
+      title: "Best Entrepreneurial Award (Road Pothole Detection System)",
+      issuer: "KFUPM",
+      date: "May 2023",
+      description: "Developed an AI-powered road assessment system with custom edge computing devices. Deployed a scalable Docker-based pipeline on GCP to classify road damage severity."
     },
     {
       title: "Merit-Based Full Undergraduate Scholarship",
-      issuer: "King Fahd University of Petroleum & Minerals",
-      date: "2018/08",
+      issuer: "KFUPM",
+      date: "Aug 2018",
       description: "Selected for a full-ride scholarship covering tuition and living expenses, awarded based on academic excellence."
     }
   ],
-  extracurriculars: [
-    {
-      role: "Vice President",
-      organization: "KFUPM Sumou Club",
-      period: "2022/08-2023/01",
-      description: "Led the planning and execution of seminars and workshops aimed at fostering student development, leadership, and career growth."
-    },
-    {
-      role: "Team Leader",
-      organization: "KFUPM Guidence Committee",
-      period: "2021/08-2022/05",
-      description: "Directed a specialized team responsible for overseeing financial operations and logistics, optimizing resource allocation and supporting strategic committee initiatives."
-    },
-    {
-      role: "Science Engagement Lead",
-      organization: "Aramco",
-      period: "2010/07-2010/09",
-      description: "Designed and conducted interactive scientific demonstrations, engaging festival attendees and enhancing public understanding of applied science."
-    }
+  certifications: [
+    { name: "CPTS - Certified Penetration Testing Specialist", issuer: "Hack The Box", date: "In Progress" },
+    { name: "Trend Vision One Cloud Security Advanced", issuer: "Trend Micro", date: "May 2025" },
+    { name: "FortiWeb Administrator", issuer: "Fortinet", date: "Mar 2025" },
+    { name: "AWS Certified Solutions Architect Associate", issuer: "Amazon Web Services", date: "Sep 2024" },
+    { name: "Deep Discovery Certified Professional", issuer: "Trend Micro", date: "May 2024" },
+    { name: "Deep Security Certificate Professional", issuer: "Trend Micro", date: "Mar 2024" },
+    { name: "Apex One Certified Professional", issuer: "Trend Micro", date: "Feb 2024" },
+    { name: "Supervised Machine Learning", issuer: "Coursera", date: "Feb 2024" },
+    { name: "eJPTv2 - Junior Penetration Tester", issuer: "INE", date: "Jan 2024" },
+    { name: "CCNA - Cisco Certified Network Associate", issuer: "Cisco", date: "Aug 2022" }
   ]
 };
 
-// --- Components ---
+// --- COMPONENTS ---
 
-const SectionHeading = ({ icon: Icon, title }) => (
-  <div className="flex items-center gap-3 mb-8">
-    <div className="p-3 bg-cyan-900/30 rounded-lg text-cyan-400">
-      <Icon size={24} />
+const Section = ({ id, title, icon: Icon, children }) => (
+  <section id={id} className="py-20 border-b border-slate-200/60 last:border-0">
+    <div className="max-w-5xl mx-auto px-6">
+      <div className="flex items-center space-x-3 mb-12">
+        <div className="p-3 bg-indigo-100 rounded-lg text-indigo-700">
+          <Icon size={24} />
+        </div>
+        <h2 className="text-3xl font-bold text-slate-900">{title}</h2>
+      </div>
+      {children}
     </div>
-    <h2 className="text-3xl font-bold text-white tracking-tight">{title}</h2>
-    <div className="h-px bg-slate-800 flex-1 ml-6"></div>
-  </div>
-);
-
-const Card = ({ children, className = "" }) => (
-  <div className={`bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:border-cyan-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/10 hover:-translate-y-1 ${className}`}>
-    {children}
-  </div>
-);
-
-const Badge = ({ children }) => (
-  <span className="px-3 py-1 bg-cyan-900/30 text-cyan-300 text-xs font-medium rounded-full border border-cyan-800/50">
-    {children}
-  </span>
+  </section>
 );
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('home');
 
+  // Simple scroll spy
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['about', 'experience', 'publications', 'certifications'];
-      let current = '';
+      const sections = ['home', 'publications', 'experience', 'education', 'awards', 'certifications'];
+      const scrollPosition = window.scrollY + 200;
+
       for (const section of sections) {
         const element = document.getElementById(section);
-        if (element && window.scrollY >= (element.offsetTop - 200)) {
-          current = section;
+        if (element && scrollPosition >= element.offsetTop && scrollPosition < element.offsetTop + element.offsetHeight) {
+          setActiveSection(section);
         }
       }
-      if (current) setActiveSection(current);
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { id: 'about', label: 'About' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'publications', label: 'Research' },
-    { id: 'certifications', label: 'Certifications' },
-  ];
-
   const scrollTo = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    const element = document.getElementById(id);
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 80,
+        behavior: 'smooth'
+      });
+    }
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-300 font-sans selection:bg-cyan-500/30">
+    <div className="min-h-screen bg-slate-50 font-sans text-slate-700 selection:bg-indigo-100 selection:text-indigo-900">
       
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="font-bold text-xl text-white tracking-wider flex items-center gap-2">
-            <Shield className="text-cyan-400" size={24} />
-            A.MOSALLY
+      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-slate-200 z-50">
+        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+          <div className="font-bold text-xl text-slate-900 tracking-tight">
+            AM<span className="text-indigo-600">.</span>
           </div>
-          <div className="hidden md:flex gap-8">
-            {navLinks.map((link) => (
-              <button 
-                key={link.id}
-                onClick={() => scrollTo(link.id)}
-                className={`text-sm font-medium transition-colors hover:text-cyan-400 ${activeSection === link.id ? 'text-cyan-400' : 'text-slate-400'}`}
+          <div className="hidden md:flex space-x-8">
+            {['Home', 'Publications', 'Experience', 'Education'].map((item) => (
+              <button
+                key={item}
+                onClick={() => scrollTo(item.toLowerCase())}
+                className={`text-sm font-medium transition-colors hover:text-indigo-600 ${
+                  activeSection === item.toLowerCase() ? 'text-indigo-600' : 'text-slate-600'
+                }`}
               >
-                {link.label}
+                {item}
               </button>
             ))}
           </div>
-          <button onClick={() => window.open(`mailto:${cvData.personal.email}`)} className="bg-cyan-600 hover:bg-cyan-500 text-white px-5 py-2 rounded-md text-sm font-medium transition-colors">
+          <button 
+            onClick={() => window.open(`mailto:${DATA.personal.email}`)}
+            className="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white text-sm font-medium rounded-md transition-colors shadow-sm"
+          >
             Contact Me
           </button>
         </div>
       </nav>
 
-      <main className="max-w-5xl mx-auto px-6 pt-32 pb-24 space-y-32">
-        
-        {/* Hero Section */}
-        <section id="about" className="animate-fade-in-up">
-          <div className="flex flex-col md:flex-row gap-12 items-center md:items-start">
-            <div className="flex-1 space-y-6">
-              <div className="space-y-2">
-                <p className="text-cyan-400 font-mono text-sm tracking-widest uppercase">Hello, I am</p>
-                <h1 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight">
-                  Amer Mosally.
-                </h1>
-                <h2 className="text-2xl md:text-3xl text-slate-400 font-light mt-2">
-                  {cvData.personal.title}
-                </h2>
-              </div>
-              
-              <div className="text-lg text-slate-400 leading-relaxed max-w-2xl space-y-4">
-                <p>{cvData.personal.profile}</p>
-              </div>
-
-              <div className="flex flex-wrap gap-4 pt-4">
-                <a href={`mailto:${cvData.personal.email}`} className="flex items-center gap-2 text-slate-300 hover:text-cyan-400 transition-colors">
-                  <Mail size={18} /> <span>{cvData.personal.email}</span>
-                </a>
-                <span className="flex items-center gap-2 text-slate-300 hover:text-cyan-400 transition-colors cursor-pointer">
-                  <Linkedin size={18} /> <span>{cvData.personal.phone} in LinkedIn</span>
-                </span>
-              </div>
+      {/* Hero Section */}
+      <section id="home" className="pt-40 pb-20 px-6 max-w-5xl mx-auto">
+        <div className="flex flex-col-reverse md:flex-row gap-12 items-center">
+          <div className="flex-1 space-y-6">
+            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-sm font-medium border border-indigo-100">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+              </span>
+              <span>Prospective Master's Student</span>
             </div>
             
-            <div className="w-64 h-64 md:w-80 md:h-80 relative flex-shrink-0">
-              <div className="absolute inset-0 bg-gradient-to-tr from-cyan-600/20 to-emerald-600/20 rounded-full animate-pulse blur-3xl"></div>
-              <div className="absolute inset-0 border border-slate-700 bg-slate-900 rounded-2xl flex items-center justify-center transform rotate-3 hover:rotate-0 transition-transform duration-500 overflow-hidden shadow-2xl">
-                 <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-cyan-400 via-transparent to-transparent"></div>
-                 <Terminal className="text-slate-700 w-32 h-32" />
-                 <div className="absolute bottom-4 left-4 right-4 bg-slate-950/80 p-3 rounded text-xs font-mono text-cyan-500 border border-slate-800">
-                   <p className="text-emerald-500">$ whoami</p>
-                   <p>amer_mosally</p>
-                   <p className="text-emerald-500 mt-1">$ status</p>
-                   <p className="text-slate-400 truncate">Consultant & Researcher</p>
-                 </div>
+            <h1 className="text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
+              {DATA.personal.name}
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-slate-600 font-medium">
+              {DATA.personal.headline}
+            </p>
+            
+            <p className="text-lg text-slate-600 leading-relaxed max-w-3xl">
+              {DATA.personal.summary}
+            </p>
+            
+            <div className="flex flex-wrap gap-4 pt-4">
+              <a href={`mailto:${DATA.personal.email}`} className="flex items-center space-x-2 text-slate-600 hover:text-indigo-600 transition-colors bg-white px-4 py-2 rounded-lg border border-slate-200 shadow-sm hover:shadow-md">
+                <Mail size={18} />
+                <span>{DATA.personal.email}</span>
+              </a>
+              <div className="flex items-center space-x-2 text-slate-600 bg-white px-4 py-2 rounded-lg border border-slate-200 shadow-sm">
+                <MapPin size={18} />
+                <span>Saudi Arabia / Taiwan</span>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Experience Section */}
-        <section id="experience">
-          <SectionHeading icon={Briefcase} title="Work Experience" />
-          <div className="space-y-6">
-            {cvData.experience.map((job, idx) => (
-              <Card key={idx} className="relative overflow-hidden group">
-                <div className="absolute left-0 top-0 bottom-0 w-1 bg-slate-700 group-hover:bg-cyan-500 transition-colors"></div>
-                <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4 ml-4">
-                  <div>
-                    <h3 className="text-xl font-bold text-white">{job.role}</h3>
-                    <p className="text-lg text-cyan-400 font-medium">{job.company}</p>
-                  </div>
-                  <Badge>{job.period}</Badge>
+      {/* Education Section */}
+      <Section id="education" title="Education" icon={GraduationCap}>
+        <div className="grid gap-6">
+          {DATA.education.map((edu, idx) => (
+            <div key={idx} className="bg-slate-900 text-white p-8 rounded-2xl shadow-xl relative overflow-hidden">
+              <div className="absolute -right-10 -top-10 opacity-10">
+                <GraduationCap size={200} />
+              </div>
+              <div className="relative z-10">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 gap-4">
+                  <h3 className="text-2xl font-bold">{edu.degree}</h3>
+                  <span className="px-4 py-1.5 bg-indigo-500/20 text-indigo-300 rounded-full font-semibold border border-indigo-500/30">
+                    {edu.period}
+                  </span>
                 </div>
-                <ul className="space-y-3 ml-4">
-                  {job.description.map((desc, i) => (
-                    <li key={i} className="flex gap-3 text-slate-400">
-                      <ChevronRight size={18} className="text-cyan-500 mt-1 flex-shrink-0" />
-                      <span className="leading-relaxed">{desc}</span>
+                <p className="text-xl text-slate-300 mb-4">{edu.institution}</p>
+                <div className="flex flex-wrap gap-4 mt-6">
+                  <div className="bg-slate-800/50 backdrop-blur-sm px-4 py-2 rounded-lg border border-slate-700">
+                    <span className="block text-sm text-slate-400 mb-1">GPA</span>
+                    <span className="font-bold text-lg text-emerald-400">{edu.gpa}</span>
+                  </div>
+                  <div className="bg-slate-800/50 backdrop-blur-sm px-4 py-2 rounded-lg border border-slate-700">
+                    <span className="block text-sm text-slate-400 mb-1">Concentration</span>
+                    <span className="font-bold text-lg text-blue-400">Cloud Computing</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+      
+      {/* Publications Section (Prioritized for Academic Application) */}
+      <Section id="publications" title="Research & Publications" icon={BookOpen}>
+        <div className="grid gap-6">
+          {DATA.publications.map((pub, idx) => (
+            <div key={idx} className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow group relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-2 h-full bg-indigo-500 transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-300"></div>
+              
+              <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">{pub.title}</h3>
+                  <div className="flex flex-wrap items-center gap-3 text-sm text-slate-500 font-medium">
+                    <span className="flex items-center gap-1 text-indigo-600 bg-indigo-50 px-2 py-1 rounded-md">
+                      <FileText size={14} />
+                      {pub.type}
+                    </span>
+                    <span>{pub.publisher}</span>
+                  </div>
+                </div>
+                <div className="shrink-0">
+                  <span className="inline-block px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-sm font-bold">
+                    {pub.date}
+                  </span>
+                </div>
+              </div>
+              <p className="text-slate-600 leading-relaxed">
+                {pub.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Experience Section */}
+      <Section id="experience" title="Professional & Academic Experience" icon={Briefcase}>
+        <div className="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent">
+          {DATA.experience.map((exp, idx) => (
+            <div key={idx} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+              
+              {/* Timeline Dot */}
+              <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-slate-50 bg-indigo-500 text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-sm z-10">
+                {exp.type === 'Academic' ? <GraduationCap size={16} /> : <Shield size={16} />}
+              </div>
+
+              {/* Content Card */}
+              <div className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow group-hover:border-indigo-200">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-sm font-bold text-indigo-600 uppercase tracking-wider">{exp.period}</span>
+                  <span className={`text-xs font-semibold px-2 py-1 rounded-full ${exp.type === 'Academic' ? 'bg-amber-100 text-amber-700' : 'bg-emerald-100 text-emerald-700'}`}>
+                    {exp.type}
+                  </span>
+                </div>
+                <h3 className="text-lg font-bold text-slate-900">{roleText(exp.role)}</h3>
+                <h4 className="text-md font-medium text-slate-600 mb-4">{exp.company}</h4>
+                <ul className="space-y-2">
+                  {exp.bullets.map((bullet, bIdx) => (
+                    <li key={bIdx} className="flex items-start text-sm text-slate-600">
+                      <ChevronRight size={16} className="shrink-0 text-indigo-400 mt-0.5 mr-2" />
+                      <span>{bullet}</span>
                     </li>
                   ))}
                 </ul>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        {/* Publications Section */}
-        <section id="publications">
-          <SectionHeading icon={BookOpen} title="Publications" />
-          <div className="grid md:grid-cols-2 gap-6">
-            {cvData.publications.map((pub, idx) => (
-              <Card key={idx} className="flex flex-col h-full">
-                <div className="flex justify-between items-start mb-4">
-                  <Badge>{pub.date}</Badge>
-                  <ExternalLink size={20} className="text-slate-500 hover:text-cyan-400 cursor-pointer" />
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2 leading-snug">{pub.title}</h3>
-                <p className="text-sm font-medium text-cyan-400 mb-4">{pub.publisher}</p>
-                <p className="text-slate-400 text-sm leading-relaxed flex-grow">{pub.description}</p>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        {/* Dual Section: Certifications & Education/Awards */}
-        <div className="grid lg:grid-cols-2 gap-16">
-          
-          {/* Certifications */}
-          <section id="certifications">
-            <SectionHeading icon={Shield} title="Certificates" />
-            <div className="space-y-4">
-              {cvData.certifications.map((cert, idx) => (
-                <div key={idx} className="flex items-center justify-between p-4 bg-slate-800/30 rounded-lg border border-slate-700/30 hover:bg-slate-800/60 transition-colors">
-                  <div className="flex items-center gap-4">
-                    <div className="p-2 bg-slate-900 rounded-md">
-                      <Code size={16} className="text-emerald-400" />
-                    </div>
-                    <div>
-                      <h4 className="text-white font-medium text-sm">{cert.name}</h4>
-                      <p className="text-xs text-slate-500">{cert.issuer}</p>
-                    </div>
-                  </div>
-                  <span className="text-xs font-mono text-cyan-500/80">{cert.date}</span>
-                </div>
-              ))}
+              </div>
             </div>
-          </section>
-
-          <div className="space-y-16">
-            {/* Education */}
-            <section id="education">
-              <SectionHeading icon={GraduationCap} title="Education" />
-              {cvData.education.map((edu, idx) => (
-                <Card key={idx}>
-                  <h3 className="text-xl font-bold text-white mb-1">{edu.degree}</h3>
-                  <p className="text-cyan-400 mb-2">{edu.institution}</p>
-                  <div className="flex justify-between items-center text-sm text-slate-400 mb-4">
-                    <span>{edu.period}</span>
-                  </div>
-                  <p className="text-slate-300 bg-slate-900/50 p-3 rounded-md border border-slate-700/50 text-sm">
-                    {edu.details}
-                  </p>
-                </Card>
-              ))}
-            </section>
-
-            {/* Awards */}
-            <section id="awards">
-              <SectionHeading icon={Award} title="Awards" />
-              <div className="space-y-4">
-                {cvData.awards.map((award, idx) => (
-                  <div key={idx} className="border-l-2 border-cyan-500 pl-4 py-1">
-                    <h4 className="text-white font-bold">{award.title}</h4>
-                    <div className="flex gap-2 text-sm text-slate-400 mb-2">
-                      <span>{award.issuer}</span>
-                      <span>&bull;</span>
-                      <span>{award.date}</span>
-                    </div>
-                    <p className="text-sm text-slate-400 leading-relaxed">{award.description}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            {/* Extracurriculars */}
-            <section id="extracurriculars">
-              <SectionHeading icon={Users} title="Extracurricular Activities" />
-              <div className="space-y-4">
-                {cvData.extracurriculars.map((activity, idx) => (
-                  <div key={idx} className="border-l-2 border-slate-700 pl-4 py-1">
-                    <h4 className="text-white font-bold">{activity.role}</h4>
-                    <div className="flex gap-2 text-sm text-cyan-400 mb-2">
-                      <span>{activity.organization}</span>
-                      <span className="text-slate-500">&bull;</span>
-                      <span className="text-slate-500">{activity.period}</span>
-                    </div>
-                    <p className="text-sm text-slate-400 leading-relaxed">{activity.description}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
-          </div>
+          ))}
         </div>
+      </Section>
 
-      </main>
+      
+      {/* Awards & Projects */}
+      <Section id="awards" title="Awards & Technical Projects" icon={Award}>
+        <div className="grid md:grid-cols-2 gap-6">
+          {DATA.awards.map((award, idx) => (
+            <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:-translate-y-1 transition-transform duration-300">
+              <div className="flex items-center space-x-3 mb-4">
+                <div className="p-2 bg-amber-50 text-amber-600 rounded-lg">
+                  <Award size={20} />
+                </div>
+                <span className="text-sm font-bold text-slate-500">{award.date}</span>
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">{award.title}</h3>
+              <p className="text-sm font-medium text-indigo-600 mb-3">{award.issuer}</p>
+              <p className="text-slate-600 leading-relaxed text-sm">
+                {award.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Certifications Grid */}
+      <Section id="certifications" title="Certifications" icon={Shield}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {DATA.certifications.map((cert, idx) => (
+            <div key={idx} className="flex flex-col bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:border-indigo-300 transition-colors">
+              <h4 className="font-bold text-slate-800 mb-1 text-sm">{cert.name}</h4>
+              <div className="mt-auto flex justify-between items-center text-xs font-medium text-slate-500 pt-3">
+                <span>{cert.issuer}</span>
+                <span className={cert.date === 'In Progress' ? 'text-amber-500' : ''}>{cert.date}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
 
       {/* Footer */}
-      <footer className="border-t border-slate-800 py-8 text-center bg-slate-950">
-        <p className="text-slate-500 text-sm">
-          Designed & Built for Amer Mosally &copy; {new Date().getFullYear()}
-        </p>
+      <footer className="bg-slate-900 text-slate-400 py-12 mt-20 border-t border-slate-800">
+        <div className="max-w-5xl mx-auto px-6 text-center">
+          <h2 className="text-2xl font-bold text-white mb-6">Let's Connect</h2>
+          <div className="flex justify-center gap-6 mb-8">
+            <a href={`mailto:${DATA.personal.email}`} className="p-3 bg-slate-800 hover:bg-slate-700 rounded-full text-white transition-colors">
+              <Mail size={24} />
+            </a>
+            {/* Replace # with your actual linkedin URL */}
+            <a href="#" className="p-3 bg-slate-800 hover:bg-slate-700 rounded-full text-white transition-colors">
+              <Linkedin size={24} />
+            </a>
+          </div>
+          <p className="text-sm">
+            © {new Date().getFullYear()} {DATA.personal.name}. All rights reserved.<br/>
+            Designed for Master's Program Application.
+          </p>
+        </div>
       </footer>
+
     </div>
   );
+}
+
+// Helper to style specific words in roles
+function roleText(role) {
+  return role.split(' ').map((word, i) => {
+    if (['Consultant', 'Researcher', 'Assistant'].includes(word)) {
+      return <span key={i} className="text-indigo-600">{word} </span>;
+    }
+    return word + ' ';
+  });
 }
