@@ -278,7 +278,8 @@ export default function App() {
 
   return (
     <div className={`${isDarkMode ? 'dark' : ''}`}>
-      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 font-sans text-slate-700 dark:text-slate-300 selection:bg-indigo-100 dark:selection:bg-indigo-900/50 selection:text-indigo-900 dark:selection:text-indigo-100 transition-colors duration-300">
+      {/* ADDED overflow-x-hidden here to prevent horizontal scrollbars on zoom */}
+      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 font-sans text-slate-700 dark:text-slate-300 selection:bg-indigo-100 dark:selection:bg-indigo-900/50 selection:text-indigo-900 dark:selection:text-indigo-100 transition-colors duration-300 overflow-x-hidden">
         
         {/* Navigation */}
         <nav className="fixed top-0 w-full bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 z-50 transition-colors duration-300">
@@ -287,8 +288,8 @@ export default function App() {
               AM<span className="text-indigo-600 dark:text-indigo-500">.</span>
             </div>
             
-            {/* Desktop Navigation Links */}
-            <div className="hidden md:flex space-x-8">
+            {/* Desktop Navigation Links - Changed to lg:flex to avoid crowding on zoom */}
+            <div className="hidden lg:flex space-x-6 xl:space-x-8">
               {['Home', 'Education', 'Publications', 'Experience', 'Skills', 'Projects'].map((item) => (
                 <button
                   key={item}
@@ -314,26 +315,27 @@ export default function App() {
                 {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
               </button>
 
+              {/* Contact Me Button - Changed to hidden lg:block so it tucks into mobile menu sooner */}
               <button 
                 onClick={() => window.open(`mailto:${DATA.personal.email}`)}
-                className="hidden sm:block px-4 py-2 bg-slate-900 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-200 text-white dark:text-slate-900 text-sm font-medium rounded-md transition-colors shadow-sm"
+                className="hidden lg:block px-4 py-2 bg-slate-900 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-200 text-white dark:text-slate-900 text-sm font-medium rounded-md transition-colors shadow-sm"
               >
                 Contact Me
               </button>
               
-              {/* Mobile Menu Toggle */}
+              {/* Mobile Menu Toggle - Changed to lg:hidden */}
               <button 
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="md:hidden p-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"
+                className="lg:hidden p-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"
               >
                 {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
             </div>
           </div>
           
-          {/* Mobile Navigation Dropdown */}
+          {/* Mobile Navigation Dropdown - Changed to lg:hidden */}
           {isMobileMenuOpen && (
-            <div className="md:hidden absolute top-16 left-0 w-full bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 shadow-lg px-6 py-4 flex flex-col space-y-4 transition-colors duration-300">
+            <div className="lg:hidden absolute top-16 left-0 w-full bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 shadow-lg px-6 py-4 flex flex-col space-y-4 transition-colors duration-300">
               {['Home', 'Education', 'Publications', 'Experience', 'Skills', 'Projects', 'Awards', 'Certifications', 'Extracurricular'].map((item) => (
                 <button
                   key={item}
@@ -394,7 +396,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* Education Section (Moved before Publications) */}
+        {/* Education Section */}
         <Section id="education" title="Education" icon={GraduationCap}>
           <div className="grid gap-6">
             {DATA.education.map((edu, idx) => (
