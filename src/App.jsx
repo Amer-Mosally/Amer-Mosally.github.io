@@ -254,38 +254,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* Education Section */}
-      <Section id="education" title="Education" icon={GraduationCap}>
-        <div className="grid gap-6">
-          {DATA.education.map((edu, idx) => (
-            <div key={idx} className="bg-slate-900 text-white p-8 rounded-2xl shadow-xl relative overflow-hidden">
-              <div className="absolute -right-10 -top-10 opacity-10">
-                <GraduationCap size={200} />
-              </div>
-              <div className="relative z-10">
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 gap-4">
-                  <h3 className="text-2xl font-bold">{edu.degree}</h3>
-                  <span className="px-4 py-1.5 bg-indigo-500/20 text-indigo-300 rounded-full font-semibold border border-indigo-500/30">
-                    {edu.period}
-                  </span>
-                </div>
-                <p className="text-xl text-slate-300 mb-4">{edu.institution}</p>
-                <div className="flex flex-wrap gap-4 mt-6">
-                  <div className="bg-slate-800/50 backdrop-blur-sm px-4 py-2 rounded-lg border border-slate-700">
-                    <span className="block text-sm text-slate-400 mb-1">GPA</span>
-                    <span className="font-bold text-lg text-emerald-400">{edu.gpa}</span>
-                  </div>
-                  <div className="bg-slate-800/50 backdrop-blur-sm px-4 py-2 rounded-lg border border-slate-700">
-                    <span className="block text-sm text-slate-400 mb-1">Concentration</span>
-                    <span className="font-bold text-lg text-blue-400">Cloud Computing</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
-      
       {/* Publications Section (Prioritized for Academic Application) */}
       <Section id="publications" title="Research & Publications" icon={BookOpen}>
         <div className="grid gap-6">
@@ -353,7 +321,38 @@ export default function App() {
         </div>
       </Section>
 
-      
+      {/* Education Section */}
+      <Section id="education" title="Education" icon={GraduationCap}>
+        <div className="grid gap-6">
+          {DATA.education.map((edu, idx) => (
+            <div key={idx} className="bg-slate-900 text-white p-8 rounded-2xl shadow-xl relative overflow-hidden">
+              <div className="absolute -right-10 -top-10 opacity-10">
+                <GraduationCap size={200} />
+              </div>
+              <div className="relative z-10">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 gap-4">
+                  <h3 className="text-2xl font-bold">{edu.degree}</h3>
+                  <span className="px-4 py-1.5 bg-indigo-500/20 text-indigo-300 rounded-full font-semibold border border-indigo-500/30">
+                    {edu.period}
+                  </span>
+                </div>
+                <p className="text-xl text-slate-300 mb-4">{edu.institution}</p>
+                <div className="flex flex-wrap gap-4 mt-6">
+                  <div className="bg-slate-800/50 backdrop-blur-sm px-4 py-2 rounded-lg border border-slate-700">
+                    <span className="block text-sm text-slate-400 mb-1">GPA</span>
+                    <span className="font-bold text-lg text-emerald-400">{edu.gpa}</span>
+                  </div>
+                  <div className="bg-slate-800/50 backdrop-blur-sm px-4 py-2 rounded-lg border border-slate-700">
+                    <span className="block text-sm text-slate-400 mb-1">Concentration</span>
+                    <span className="font-bold text-lg text-blue-400">Cloud Computing</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
       {/* Awards & Projects */}
       <Section id="awards" title="Awards & Technical Projects" icon={Award}>
         <div className="grid md:grid-cols-2 gap-6">
