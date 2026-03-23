@@ -64,7 +64,7 @@ const DATA = {
       period: "Aug 2024 - Present",
       type: "Industry",
       bullets: [
-        "Architected and deployed secure cybersecurity solutions for the Ministry of Health in Saudi Arabia, managing the entire lifecycle from design to optimization.",
+        "Architected and deployed secure cybersecurity solutions for the Ministry of Health, managing the entire lifecycle from design to optimization.",
         "Significantly improved web and network security posture and resilience against cyber threats.",
         "Developed automation workflows using Python and APIs to orchestrate investigative workflows and routine security tasks, reducing manual deployment and response effort by 90%."
       ]
