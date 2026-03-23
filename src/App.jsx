@@ -214,20 +214,20 @@ const Section = ({ id, title, icon: Icon, children }) => (
 const TerminalGraphic = () => (
   <div className="relative w-full aspect-[4/5] sm:aspect-square max-w-[380px] mx-auto bg-[#0a0f1c] rounded-3xl border border-slate-800 shadow-2xl overflow-hidden flex flex-col items-center justify-center group">
     {/* Background stylized >_ */}
-    <div className="absolute inset-0 flex items-center justify-center opacity-20 select-none">
-      <Terminal size={180} strokeWidth={1.5} className="text-slate-400" />
+    <div className="absolute inset-0 flex items-center justify-center opacity-20 select-none pb-24">
+      <Terminal size={150} strokeWidth={1.5} className="text-slate-400" />
     </div>
 
     {/* Floating code block */}
-    <div className="relative z-10 w-[85%] bg-[#111827]/80 backdrop-blur-md rounded-xl border border-slate-700/50 p-5 shadow-xl mt-auto mb-8 transform group-hover:-translate-y-2 transition-transform duration-500">
-      <div className="space-y-3 font-mono text-[13px] sm:text-sm">
+    <div className="relative z-10 w-[92%] sm:w-[85%] bg-[#111827]/80 backdrop-blur-md rounded-xl border border-slate-700/50 p-4 sm:p-5 shadow-xl mt-auto mb-6 sm:mb-8 transform group-hover:-translate-y-2 transition-transform duration-500">
+      <div className="space-y-2 sm:space-y-3 font-mono text-xs sm:text-sm">
         <div>
           <span className="text-emerald-400">$ whoami</span>
-          <div className="text-cyan-400 ml-4 mt-1">amer_mosally</div>
+          <div className="text-cyan-400 ml-3 sm:ml-4 mt-1">amer_mosally</div>
         </div>
         <div>
           <span className="text-emerald-400">$ status</span>
-          <div className="text-slate-300 ml-4 mt-1">Consultant & Researcher</div>
+          <div className="text-slate-300 ml-3 sm:ml-4 mt-1 whitespace-nowrap">Consultant & Researcher</div>
         </div>
       </div>
     </div>
@@ -282,7 +282,7 @@ export default function App() {
       <div className="min-h-screen bg-slate-50 dark:bg-slate-950 font-sans text-slate-700 dark:text-slate-300 selection:bg-indigo-100 dark:selection:bg-indigo-900/50 selection:text-indigo-900 dark:selection:text-indigo-100 transition-colors duration-300 overflow-x-hidden">
         
         {/* Navigation */}
-        <nav className="fixed top-0 w-full bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 z-50 transition-colors duration-300">
+        <nav className="fixed top-0 left-0 w-full bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 z-50 transition-colors duration-300">
           <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
             <div className="font-bold text-xl text-slate-900 dark:text-white tracking-tight transition-colors duration-300">
               AM<span className="text-indigo-600 dark:text-indigo-500">.</span>
