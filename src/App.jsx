@@ -17,14 +17,15 @@ import {
   Code,
   FolderGit2,
   Menu,
-  X
+  X,
+  ChevronDown
 } from 'lucide-react';
 
 // --- DATA ---
 const DATA = {
   personal: {
     name: "Amer Mosally",
-    headline: "Cybersecurity Consultant & Computer Science Researcher",
+    headline: "Cybersecurity Engineer & Researcher",
     email: "amer.mosally@gmail.com",
     phone: "+966590520182",
     linkedin: "https://www.linkedin.com/in/amer-mosally/",
@@ -35,7 +36,7 @@ const DATA = {
     {
       degree: "Bachelor of Science in Computer Engineering",
       institution: "King Fahd University Of Petroleum & Minerals (KFUPM)",
-      period: "2018 - 2023",
+      period: "2019 - 2023",
       gpa: "3.68/4.00",
       details: "Major Concentration: Cloud Computing"
     }
@@ -75,7 +76,8 @@ const DATA = {
       type: "Industry",
       bullets: [
         "Implemented and managed Apex One and Deep Security to protect servers and endpoints against advanced malware.",
-        "Executed comprehensive security assessments and identified misconfigurations, recommending specific policy enhancements."
+        "Executed comprehensive security assessments and identified misconfigurations, recommending specific policy enhancements.",
+        "Strengthened security posture and operational efficiency by developing Python-based automation for Trend Micro solutions via REST APIs, reducing manual overhead and response latency."
       ]
     },
     {
@@ -227,7 +229,7 @@ const TerminalGraphic = () => (
         </div>
         <div>
           <span className="text-emerald-400">$ status</span>
-          <div className="text-slate-300 ml-3 sm:ml-4 mt-1 whitespace-nowrap">Consultant & Researcher</div>
+          <div className="text-slate-300 ml-3 sm:ml-4 mt-1 whitespace-nowrap">Cybersecurity Engineer</div>
         </div>
       </div>
     </div>
@@ -246,11 +248,20 @@ export default function App() {
     }
   }, []);
 
+  // Sync dark mode state with HTML element
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDarkMode]);
+
   // Simple scroll spy
   useEffect(() => {
     const handleScroll = () => {
       // Reordered sections to match new layout
-      const sections = ['home', 'education', 'publications', 'experience', 'skills', 'projects', 'awards', 'certifications', 'extracurricular'];
+      const sections = ['home', 'education', 'experience', 'publications', 'awards', 'certifications', 'projects', 'skills', 'extracurricular'];
       const scrollPosition = window.scrollY + 200;
 
       for (const section of sections) {
@@ -277,332 +288,352 @@ export default function App() {
   };
 
   return (
-    <div className={`${isDarkMode ? 'dark' : ''}`}>
-      {/* ADDED overflow-x-hidden here to prevent horizontal scrollbars on zoom */}
-      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 font-sans text-slate-700 dark:text-slate-300 selection:bg-indigo-100 dark:selection:bg-indigo-900/50 selection:text-indigo-900 dark:selection:text-indigo-100 transition-colors duration-300 overflow-x-hidden">
-        
-        {/* Navigation */}
-        <nav className="fixed top-0 left-0 w-full bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 z-50 transition-colors duration-300">
-          <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <div className="font-bold text-xl text-slate-900 dark:text-white tracking-tight transition-colors duration-300">
-              AM<span className="text-indigo-600 dark:text-indigo-500">.</span>
-            </div>
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 font-sans text-slate-700 dark:text-slate-300 selection:bg-indigo-100 dark:selection:bg-indigo-900/50 selection:text-indigo-900 dark:selection:text-indigo-100 transition-colors duration-300 overflow-x-hidden">
+      
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 w-full bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 z-50 transition-colors duration-300">
+        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+          <div className="font-bold text-xl text-slate-900 dark:text-white tracking-tight transition-colors duration-300">
+            AM<span className="text-indigo-600 dark:text-indigo-500">.</span>
+          </div>
+          
+          {/* Desktop Navigation Links */}
+          <div className="hidden lg:flex items-center lg:space-x-4 xl:space-x-6">
+            {['Home', 'Education', 'Experience', 'Publications', 'Awards', 'Certifications'].map((item) => (
+              <button
+                key={item}
+                onClick={() => scrollTo(item.toLowerCase())}
+                className={`text-sm font-medium transition-colors hover:text-indigo-600 dark:hover:text-indigo-400 ${
+                  activeSection === item.toLowerCase() 
+                    ? 'text-indigo-600 dark:text-indigo-400' 
+                    : 'text-slate-600 dark:text-slate-400'
+                }`}
+              >
+                {item}
+              </button>
+            ))}
             
-            {/* Desktop Navigation Links - Changed to lg:flex to avoid crowding on zoom */}
-            <div className="hidden lg:flex space-x-6 xl:space-x-8">
-              {['Home', 'Education', 'Publications', 'Experience', 'Skills', 'Projects'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollTo(item.toLowerCase())}
-                  className={`text-sm font-medium transition-colors hover:text-indigo-600 dark:hover:text-indigo-400 ${
-                    activeSection === item.toLowerCase() 
-                      ? 'text-indigo-600 dark:text-indigo-400' 
-                      : 'text-slate-600 dark:text-slate-400'
-                  }`}
-                >
-                  {item}
-                </button>
-              ))}
-            </div>
-            
-            <div className="flex items-center space-x-3 sm:space-x-4">
-              {/* Dark Mode Toggle */}
-              <button 
-                onClick={() => setIsDarkMode(!isDarkMode)}
-                className="p-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"
-                aria-label="Toggle dark mode"
-              >
-                {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+            {/* More Dropdown */}
+            <div className="relative group">
+              <button className="flex items-center space-x-1 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors py-2">
+                <span>More</span>
+                <ChevronDown size={14} />
               </button>
-
-              {/* Contact Me Button - Changed to hidden lg:block so it tucks into mobile menu sooner */}
-              <button 
-                onClick={() => window.open(`mailto:${DATA.personal.email}`)}
-                className="hidden lg:block px-4 py-2 bg-slate-900 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-200 text-white dark:text-slate-900 text-sm font-medium rounded-md transition-colors shadow-sm"
-              >
-                Contact Me
-              </button>
-              
-              {/* Mobile Menu Toggle - Changed to lg:hidden */}
-              <button 
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden p-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"
-              >
-                {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
+              <div className="absolute top-full right-0 mt-0 w-44 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 flex flex-col py-2">
+                {['Projects', 'Skills', 'Extracurricular'].map((item) => (
+                  <button
+                    key={item}
+                    onClick={() => scrollTo(item.toLowerCase())}
+                    className={`text-left px-4 py-2 text-sm font-medium transition-colors hover:bg-slate-50 dark:hover:bg-slate-800 ${
+                      activeSection === item.toLowerCase() 
+                        ? 'text-indigo-600 dark:text-indigo-400' 
+                        : 'text-slate-600 dark:text-slate-400'
+                    }`}
+                  >
+                    {item}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
           
-          {/* Mobile Navigation Dropdown - Changed to lg:hidden */}
-          {isMobileMenuOpen && (
-            <div className="lg:hidden absolute top-16 left-0 w-full bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 shadow-lg px-6 py-4 flex flex-col space-y-4 transition-colors duration-300">
-              {['Home', 'Education', 'Publications', 'Experience', 'Skills', 'Projects', 'Awards', 'Certifications', 'Extracurricular'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollTo(item.toLowerCase())}
-                  className={`text-left text-base font-medium transition-colors ${
-                    activeSection === item.toLowerCase() 
-                      ? 'text-indigo-600 dark:text-indigo-400' 
-                      : 'text-slate-600 dark:text-slate-400'
-                  }`}
-                >
-                  {item}
-                </button>
-              ))}
-              <button 
-                onClick={() => window.open(`mailto:${DATA.personal.email}`)}
-                className="w-full mt-4 px-4 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-sm font-bold rounded-md transition-colors shadow-sm text-center"
-              >
-                Contact Me
-              </button>
-            </div>
-          )}
-        </nav>
+          <div className="flex items-center space-x-3 sm:space-x-4">
+            {/* Dark Mode Toggle */}
+            <button 
+              onClick={() => setIsDarkMode(!isDarkMode)}
+              className="p-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"
+              aria-label="Toggle dark mode"
+            >
+              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
 
-        {/* Hero Section */}
-        <section id="home" className="pt-40 pb-20 px-6 max-w-5xl mx-auto">
-          <div className="flex flex-col md:flex-row gap-12 items-center">
+            {/* Contact Me Button - Changed to hidden lg:block so it tucks into mobile menu sooner */}
+            <button 
+              onClick={() => window.open(`mailto:${DATA.personal.email}`)}
+              className="hidden lg:block px-4 py-2 bg-slate-900 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-200 text-white dark:text-slate-900 text-sm font-medium rounded-md transition-colors shadow-sm"
+            >
+              Contact Me
+            </button>
             
-            <div className="flex-1 space-y-6">
-              <h1 className="text-5xl md:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight transition-colors duration-300">
-                {DATA.personal.name}
-              </h1>
-              
-              <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 font-medium transition-colors duration-300">
-                {DATA.personal.headline}
-              </p>
-              
-              <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-3xl transition-colors duration-300">
-                {DATA.personal.summary}
-              </p>
-              
-              <div className="flex flex-wrap gap-4 pt-4">
-                <a href={`mailto:${DATA.personal.email}`} className="flex items-center space-x-2 text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors bg-white dark:bg-slate-900 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md">
-                  <Mail size={18} />
-                  <span>{DATA.personal.email}</span>
-                </a>
-                <div className="flex items-center space-x-2 text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-900 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800 shadow-sm transition-colors duration-300">
-                  <MapPin size={18} />
-                  <span>Taipei, Taiwan</span>
-                </div>
+            {/* Mobile Menu Toggle - Changed to lg:hidden */}
+            <button 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden p-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
+        
+        {/* Mobile Navigation Dropdown - Changed to lg:hidden */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden absolute top-16 left-0 w-full bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 shadow-lg px-6 py-4 flex flex-col space-y-4 transition-colors duration-300">
+            {['Home', 'Education', 'Experience', 'Publications', 'Awards', 'Certifications', 'Projects', 'Skills', 'Extracurricular'].map((item) => (
+              <button
+                key={item}
+                onClick={() => scrollTo(item.toLowerCase())}
+                className={`text-left text-base font-medium transition-colors ${
+                  activeSection === item.toLowerCase() 
+                    ? 'text-indigo-600 dark:text-indigo-400' 
+                    : 'text-slate-600 dark:text-slate-400'
+                }`}
+              >
+                {item}
+              </button>
+            ))}
+            <button 
+              onClick={() => window.open(`mailto:${DATA.personal.email}`)}
+              className="w-full mt-4 px-4 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-sm font-bold rounded-md transition-colors shadow-sm text-center"
+            >
+              Contact Me
+            </button>
+          </div>
+        )}
+      </nav>
+
+      {/* Hero Section */}
+      <section id="home" className="pt-40 pb-20 px-6 max-w-5xl mx-auto">
+        <div className="flex flex-col md:flex-row gap-12 items-center">
+          
+          <div className="flex-1 space-y-6">
+            <h1 className="text-5xl md:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight transition-colors duration-300">
+              {DATA.personal.name}
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 font-medium transition-colors duration-300">
+              {DATA.personal.headline}
+            </p>
+            
+            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-3xl transition-colors duration-300">
+              {DATA.personal.summary}
+            </p>
+            
+            <div className="flex flex-wrap gap-4 pt-4">
+              <a href={`mailto:${DATA.personal.email}`} className="flex items-center space-x-2 text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors bg-white dark:bg-slate-900 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md">
+                <Mail size={18} />
+                <span>{DATA.personal.email}</span>
+              </a>
+              <div className="flex items-center space-x-2 text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-900 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800 shadow-sm transition-colors duration-300">
+                <MapPin size={18} />
+                <span>Taipei, Taiwan</span>
               </div>
             </div>
-
-            {/* Terminal Graphic */}
-            <div className="w-full max-w-sm md:w-2/5 md:flex-shrink-0">
-              <TerminalGraphic />
-            </div>
-
           </div>
-        </section>
 
-        {/* Education Section */}
-        <Section id="education" title="Education" icon={GraduationCap}>
-          <div className="grid gap-6">
-            {DATA.education.map((edu, idx) => (
-              <div key={idx} className="bg-slate-900 dark:bg-slate-800 text-white p-8 rounded-2xl shadow-xl relative overflow-hidden transition-colors duration-300">
-                <div className="absolute -right-10 -top-10 opacity-10">
-                  <GraduationCap size={200} />
-                </div>
-                <div className="relative z-10">
-                  <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 gap-4">
-                    <h3 className="text-2xl font-bold">{edu.degree}</h3>
-                    <span className="px-4 py-1.5 bg-indigo-500/20 text-indigo-300 rounded-full font-semibold border border-indigo-500/30">
-                      {edu.period}
-                    </span>
-                  </div>
-                  <p className="text-xl text-slate-300 mb-4">{edu.institution}</p>
-                  <div className="flex flex-wrap gap-4 mt-6">
-                    <div className="bg-slate-800/50 dark:bg-slate-900/50 backdrop-blur-sm px-4 py-2 rounded-lg border border-slate-700 dark:border-slate-600 transition-colors duration-300">
-                      <span className="block text-sm text-slate-400 mb-1">GPA</span>
-                      <span className="font-bold text-lg text-emerald-400">{edu.gpa}</span>
-                    </div>
-                    <div className="bg-slate-800/50 dark:bg-slate-900/50 backdrop-blur-sm px-4 py-2 rounded-lg border border-slate-700 dark:border-slate-600 transition-colors duration-300">
-                      <span className="block text-sm text-slate-400 mb-1">Concentration</span>
-                      <span className="font-bold text-lg text-blue-400">Cloud Computing</span>
-                    </div>
-                  </div>
-                </div>
+          {/* Terminal Graphic */}
+          <div className="w-full max-w-sm md:w-2/5 md:flex-shrink-0">
+            <TerminalGraphic />
+          </div>
+
+        </div>
+      </section>
+
+      {/* Education Section */}
+      <Section id="education" title="Education" icon={GraduationCap}>
+        <div className="grid gap-6">
+          {DATA.education.map((edu, idx) => (
+            <div key={idx} className="bg-slate-900 dark:bg-slate-800 text-white p-8 rounded-2xl shadow-xl relative overflow-hidden transition-colors duration-300">
+              <div className="absolute -right-10 -top-10 opacity-10">
+                <GraduationCap size={200} />
               </div>
-            ))}
-          </div>
-        </Section>
-
-        {/* Publications Section */}
-        <Section id="publications" title="Research & Publications" icon={BookOpen}>
-          <div className="grid gap-6">
-            {DATA.publications.map((pub, idx) => (
-              <div key={idx} className="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all duration-300 group relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-2 h-full bg-indigo-500 transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-300"></div>
-                
-                <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
-                  <div>
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 transition-colors duration-300">{pub.title}</h3>
-                    <div className="flex flex-wrap items-center gap-3 text-sm text-slate-500 dark:text-slate-400 font-medium">
-                      <span className="flex items-center gap-1 text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-500/10 px-2 py-1 rounded-md transition-colors duration-300">
-                        <FileText size={14} />
-                        {pub.type}
-                      </span>
-                      <span>{pub.publisher}</span>
-                    </div>
-                  </div>
-                  <div className="shrink-0">
-                    <span className="inline-block px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-full text-sm font-bold transition-colors duration-300">
-                      {pub.date}
-                    </span>
-                  </div>
-                </div>
-                <p className="text-slate-600 dark:text-slate-400 leading-relaxed transition-colors duration-300">
-                  {pub.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </Section>
-
-        {/* Experience Section */}
-        <Section id="experience" title="Professional & Academic Experience" icon={Briefcase}>
-          <div className="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 dark:before:via-slate-700 before:to-transparent">
-            {DATA.experience.map((exp, idx) => (
-              <div key={idx} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                
-                {/* Timeline Dot */}
-                <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-slate-50 dark:border-slate-950 bg-indigo-500 text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-sm z-10 transition-colors duration-300">
-                  {exp.type === 'Academic' ? <GraduationCap size={16} /> : <Shield size={16} />}
-                </div>
-
-                {/* Content Card */}
-                <div className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all duration-300 group-hover:border-indigo-200 dark:group-hover:border-indigo-800">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">{exp.period}</span>
-                    <span className={`text-xs font-semibold px-2 py-1 rounded-full ${exp.type === 'Academic' ? 'bg-amber-100 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400' : 'bg-emerald-100 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400'}`}>
-                      {exp.type}
-                    </span>
-                  </div>
-                  <h3 className="text-lg font-bold text-slate-900 dark:text-white transition-colors duration-300">{roleText(exp.role)}</h3>
-                  <h4 className="text-md font-medium text-slate-600 dark:text-slate-400 mb-4 transition-colors duration-300">{exp.company}</h4>
-                  <ul className="space-y-2">
-                    {exp.bullets.map((bullet, bIdx) => (
-                      <li key={bIdx} className="flex items-start text-sm text-slate-600 dark:text-slate-400 transition-colors duration-300">
-                        <ChevronRight size={16} className="shrink-0 text-indigo-400 dark:text-indigo-500 mt-0.5 mr-2" />
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Section>
-
-        {/* Technical Skills Section */}
-        <Section id="skills" title="Technical Skills" icon={Code}>
-          <div className="grid md:grid-cols-3 gap-6">
-            {DATA.skills.map((skillGroup, idx) => (
-              <div key={idx} className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm transition-colors duration-300">
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4 transition-colors duration-300">{skillGroup.category}</h3>
-                <div className="flex flex-wrap gap-2">
-                  {skillGroup.items.map((item, iIdx) => (
-                    <span key={iIdx} className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-sm font-medium transition-colors duration-300">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </Section>
-
-        {/* Projects & Write-ups Section */}
-        <Section id="projects" title="Projects & Write-ups" icon={FolderGit2}>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {DATA.projects.map((project, idx) => (
-              <div key={idx} className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col h-full">
-                <div className="mb-4">
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 transition-colors duration-300">{project.title}</h3>
-                  <span className="inline-block px-3 py-1 bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 rounded-full text-xs font-bold transition-colors duration-300">
-                    {project.tech}
+              <div className="relative z-10">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 gap-4">
+                  <h3 className="text-2xl font-bold">{edu.degree}</h3>
+                  <span className="px-4 py-1.5 bg-indigo-500/20 text-indigo-300 rounded-full font-semibold border border-indigo-500/30">
+                    {edu.period}
                   </span>
                 </div>
-                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed flex-grow transition-colors duration-300">
-                  {project.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </Section>
-
-        {/* Awards */}
-        <Section id="awards" title="Awards" icon={Award}>
-          <div className="grid md:grid-cols-2 gap-6">
-            {DATA.awards.map((award, idx) => (
-              <div key={idx} className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:-translate-y-1 transition-all duration-300">
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="p-2 bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 rounded-lg transition-colors duration-300">
-                    <Award size={20} />
+                <p className="text-xl text-slate-300 mb-4">{edu.institution}</p>
+                <div className="flex flex-wrap gap-4 mt-6">
+                  <div className="bg-slate-800/50 dark:bg-slate-900/50 backdrop-blur-sm px-4 py-2 rounded-lg border border-slate-700 dark:border-slate-600 transition-colors duration-300">
+                    <span className="block text-sm text-slate-400 mb-1">GPA</span>
+                    <span className="font-bold text-lg text-emerald-400">{edu.gpa}</span>
                   </div>
-                  <span className="text-sm font-bold text-slate-500 dark:text-slate-400 transition-colors duration-300">{award.date}</span>
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 transition-colors duration-300">{award.title}</h3>
-                <p className="text-sm font-medium text-indigo-600 dark:text-indigo-400 mb-3 transition-colors duration-300">{award.issuer}</p>
-                <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm transition-colors duration-300">
-                  {award.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </Section>
-
-        {/* Certifications Grid */}
-        <Section id="certifications" title="Certifications" icon={Shield}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {DATA.certifications.map((cert, idx) => (
-              <div key={idx} className="flex flex-col bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-indigo-300 dark:hover:border-indigo-700 transition-all duration-300">
-                <h4 className="font-bold text-slate-800 dark:text-slate-200 mb-1 text-sm transition-colors duration-300">{cert.name}</h4>
-                <div className="mt-auto flex justify-between items-center text-xs font-medium text-slate-500 dark:text-slate-400 pt-3 transition-colors duration-300">
-                  <span>{cert.issuer}</span>
-                  <span className={cert.date === 'In Progress' ? 'text-amber-500 dark:text-amber-400' : ''}>{cert.date}</span>
+                  <div className="bg-slate-800/50 dark:bg-slate-900/50 backdrop-blur-sm px-4 py-2 rounded-lg border border-slate-700 dark:border-slate-600 transition-colors duration-300">
+                    <span className="block text-sm text-slate-400 mb-1">Concentration</span>
+                    <span className="font-bold text-lg text-blue-400">Cloud Computing</span>
+                  </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </Section>
-
-        {/* Extracurricular Activities */}
-        <Section id="extracurricular" title="Extracurricular Activities" icon={Users}>
-          <div className="grid md:grid-cols-3 gap-6">
-            {DATA.extracurricular.map((item, idx) => (
-              <div key={idx} className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all duration-300 group">
-                <span className="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider mb-2 block transition-colors duration-300">{item.period}</span>
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1 transition-colors duration-300">{item.role}</h3>
-                <h4 className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-4 transition-colors duration-300">{item.organization}</h4>
-                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed transition-colors duration-300">
-                  {item.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </Section>
-
-        {/* Footer */}
-        <footer className="bg-slate-900 dark:bg-slate-950 text-slate-400 py-12 mt-20 border-t border-slate-800 dark:border-slate-900 transition-colors duration-300">
-          <div className="max-w-5xl mx-auto px-6 text-center">
-            <h2 className="text-2xl font-bold text-white mb-6">Let's Connect</h2>
-            <div className="flex justify-center gap-6 mb-8">
-              <a href={`mailto:${DATA.personal.email}`} className="p-3 bg-slate-800 hover:bg-slate-700 dark:bg-slate-900 dark:hover:bg-slate-800 rounded-full text-white transition-colors">
-                <Mail size={24} />
-              </a>
-              <a href={DATA.personal.linkedin} target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-800 hover:bg-slate-700 dark:bg-slate-900 dark:hover:bg-slate-800 rounded-full text-white transition-colors">
-                <Linkedin size={24} />
-              </a>
             </div>
-            <p className="text-sm">
-              © {new Date().getFullYear()} {DATA.personal.name}. All rights reserved.
-            </p>
-          </div>
-        </footer>
+          ))}
+        </div>
+      </Section>
 
-      </div>
+      {/* Experience Section */}
+      <Section id="experience" title="Professional & Academic Experience" icon={Briefcase}>
+        <div className="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 dark:before:via-slate-700 before:to-transparent">
+          {DATA.experience.map((exp, idx) => (
+            <div key={idx} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+              
+              {/* Timeline Dot */}
+              <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-slate-50 dark:border-slate-950 bg-indigo-500 text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-sm z-10 transition-colors duration-300">
+                {exp.type === 'Academic' ? <GraduationCap size={16} /> : <Shield size={16} />}
+              </div>
+
+              {/* Content Card */}
+              <div className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all duration-300 group-hover:border-indigo-200 dark:group-hover:border-indigo-800">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-sm font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">{exp.period}</span>
+                  <span className={`text-xs font-semibold px-2 py-1 rounded-full ${exp.type === 'Academic' ? 'bg-amber-100 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400' : 'bg-emerald-100 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400'}`}>
+                    {exp.type}
+                  </span>
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white transition-colors duration-300">{roleText(exp.role)}</h3>
+                <h4 className="text-md font-medium text-slate-600 dark:text-slate-400 mb-4 transition-colors duration-300">{exp.company}</h4>
+                <ul className="space-y-2">
+                  {exp.bullets.map((bullet, bIdx) => (
+                    <li key={bIdx} className="flex items-start text-sm text-slate-600 dark:text-slate-400 transition-colors duration-300">
+                      <ChevronRight size={16} className="shrink-0 text-indigo-400 dark:text-indigo-500 mt-0.5 mr-2" />
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Publications Section */}
+      <Section id="publications" title="Research & Publications" icon={BookOpen}>
+        <div className="grid gap-6">
+          {DATA.publications.map((pub, idx) => (
+            <div key={idx} className="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all duration-300 group relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-2 h-full bg-indigo-500 transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-300"></div>
+              
+              <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 transition-colors duration-300">{pub.title}</h3>
+                  <div className="flex flex-wrap items-center gap-3 text-sm text-slate-500 dark:text-slate-400 font-medium">
+                    <span className="flex items-center gap-1 text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-500/10 px-2 py-1 rounded-md transition-colors duration-300">
+                      <FileText size={14} />
+                      {pub.type}
+                    </span>
+                    <span>{pub.publisher}</span>
+                  </div>
+                </div>
+                <div className="shrink-0">
+                  <span className="inline-block px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-full text-sm font-bold transition-colors duration-300">
+                    {pub.date}
+                  </span>
+                </div>
+              </div>
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed transition-colors duration-300">
+                {pub.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Awards */}
+      <Section id="awards" title="Awards" icon={Award}>
+        <div className="grid md:grid-cols-2 gap-6">
+          {DATA.awards.map((award, idx) => (
+            <div key={idx} className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:-translate-y-1 transition-all duration-300">
+              <div className="flex items-center space-x-3 mb-4">
+                <div className="p-2 bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 rounded-lg transition-colors duration-300">
+                  <Award size={20} />
+                </div>
+                <span className="text-sm font-bold text-slate-500 dark:text-slate-400 transition-colors duration-300">{award.date}</span>
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 transition-colors duration-300">{award.title}</h3>
+              <p className="text-sm font-medium text-indigo-600 dark:text-indigo-400 mb-3 transition-colors duration-300">{award.issuer}</p>
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm transition-colors duration-300">
+                {award.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Certifications Grid */}
+      <Section id="certifications" title="Certifications" icon={Shield}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {DATA.certifications.map((cert, idx) => (
+            <div key={idx} className="flex flex-col bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-indigo-300 dark:hover:border-indigo-700 transition-all duration-300">
+              <h4 className="font-bold text-slate-800 dark:text-slate-200 mb-1 text-sm transition-colors duration-300">{cert.name}</h4>
+              <div className="mt-auto flex justify-between items-center text-xs font-medium text-slate-500 dark:text-slate-400 pt-3 transition-colors duration-300">
+                <span>{cert.issuer}</span>
+                <span className={cert.date === 'In Progress' ? 'text-amber-500 dark:text-amber-400' : ''}>{cert.date}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Projects & Write-ups Section */}
+      <Section id="projects" title="Projects & Write-ups" icon={FolderGit2}>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {DATA.projects.map((project, idx) => (
+            <div key={idx} className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all duration-300 group flex flex-col h-full">
+              <div className="mb-4">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 transition-colors duration-300">{project.title}</h3>
+                <span className="inline-block px-3 py-1 bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 rounded-full text-xs font-bold transition-colors duration-300">
+                  {project.tech}
+                </span>
+              </div>
+              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed flex-grow transition-colors duration-300">
+                {project.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Technical Skills Section */}
+      <Section id="skills" title="Technical Skills" icon={Code}>
+        <div className="grid md:grid-cols-3 gap-6">
+          {DATA.skills.map((skillGroup, idx) => (
+            <div key={idx} className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm transition-colors duration-300">
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4 transition-colors duration-300">{skillGroup.category}</h3>
+              <div className="flex flex-wrap gap-2">
+                {skillGroup.items.map((item, iIdx) => (
+                  <span key={iIdx} className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-sm font-medium transition-colors duration-300">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Extracurricular Activities */}
+      <Section id="extracurricular" title="Extracurricular Activities" icon={Users}>
+        <div className="grid md:grid-cols-3 gap-6">
+          {DATA.extracurricular.map((item, idx) => (
+            <div key={idx} className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-all duration-300 group">
+              <span className="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider mb-2 block transition-colors duration-300">{item.period}</span>
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1 transition-colors duration-300">{item.role}</h3>
+              <h4 className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-4 transition-colors duration-300">{item.organization}</h4>
+              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed transition-colors duration-300">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Footer */}
+      <footer className="bg-slate-900 dark:bg-slate-950 text-slate-400 py-12 mt-20 border-t border-slate-800 dark:border-slate-900 transition-colors duration-300">
+        <div className="max-w-5xl mx-auto px-6 text-center">
+          <h2 className="text-2xl font-bold text-white mb-6">Let's Connect</h2>
+          <div className="flex justify-center gap-6 mb-8">
+            <a href={`mailto:${DATA.personal.email}`} className="p-3 bg-slate-800 hover:bg-slate-700 dark:bg-slate-900 dark:hover:bg-slate-800 rounded-full text-white transition-colors">
+              <Mail size={24} />
+            </a>
+            <a href={DATA.personal.linkedin} target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-800 hover:bg-slate-700 dark:bg-slate-900 dark:hover:bg-slate-800 rounded-full text-white transition-colors">
+              <Linkedin size={24} />
+            </a>
+          </div>
+          <p className="text-sm">
+            © {new Date().getFullYear()} {DATA.personal.name}. All rights reserved.
+          </p>
+        </div>
+      </footer>
+
     </div>
   );
 }
