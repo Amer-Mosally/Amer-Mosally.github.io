@@ -30,7 +30,7 @@ const DATA = {
     phone: "+966590520182",
     linkedin: "https://www.linkedin.com/in/amer-mosally/",
     nationality: "Taiwanese",
-    summary: "Research-oriented Professional Services Consultant and published author specializing in emerging security paradigms. Co-authored a CRC Press book on Post-Quantum Cryptography and published an IEEE conference paper on enhancing intrusion detection via machine learning. Expert in automating security operations, backed by a strong technical foundation in programming and penetration testing. Currently seeking a Master's in Computer Science to further research in intelligent secure systems."
+    summary: "Research-oriented Professional Services Consultant and published author specializing in emerging security paradigms. Co-authored a CRC Press book on Post-Quantum Cryptography and published an IEEE conference paper on enhancing intrusion detection via machine learning. Expert in automating security operations, backed by a strong technical foundation in programming and penetration testing."
   },
   education: [
     {
@@ -429,7 +429,7 @@ export default function App() {
                 </a>
                 <div className="flex items-center space-x-2 text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-900 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800 shadow-sm transition-colors duration-300">
                   <MapPin size={18} />
-                  <span>Taipei, Taiwan</span>
+                  {/* <span>Taipei, Taiwan</span> */}
                 </div>
               </div>
             </div>
