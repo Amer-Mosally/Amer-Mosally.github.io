@@ -64,7 +64,7 @@ const DATA = {
       period: "Aug 2024 - Present",
       type: "Industry",
       bullets: [
-        "Architected and deployed secure cybersecurity solutions for the Ministry of Health, managing the entire lifecycle from design to optimization.",
+        "Architected and deployed secure cybersecurity solutions for the Ministry of Health in Saudi Arabia, managing the entire lifecycle from design to optimization.",
         "Significantly improved web and network security posture and resilience against cyber threats.",
         "Developed automation workflows using Python and APIs to orchestrate investigative workflows and routine security tasks, reducing manual deployment and response effort by 90%."
       ]
@@ -293,7 +293,8 @@ export default function App() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
-      const sections = ['home', 'education', 'experience', 'publications', 'awards', 'certifications', 'projects', 'skills', 'extracurricular'];
+      // Reordered so scroll spy detects sections in visual order: Publications -> Projects -> Skills
+      const sections = ['home', 'education', 'experience', 'publications', 'projects', 'skills', 'certifications', 'awards', 'extracurricular'];
       const scrollPosition = window.scrollY + 250;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -363,7 +364,7 @@ export default function App() {
                 <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />
               </button>
               <div className="absolute top-full right-0 mt-2 w-48 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-slate-200 dark:border-slate-800 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col p-2 translate-y-2 group-hover:translate-y-0">
-                {['Awards', 'Certifications', 'Skills', 'Extracurricular'].map((item) => (
+                {['Skills', 'Certifications', 'Awards', 'Extracurricular'].map((item) => (
                   <button
                     key={item}
                     onClick={() => scrollTo(item.toLowerCase())}
@@ -412,7 +413,7 @@ export default function App() {
         {/* Mobile Navigation Dropdown */}
         {isMobileMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 w-full bg-white/95 dark:bg-[#030712]/95 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 shadow-2xl px-6 py-4 flex flex-col space-y-1.5 transition-all duration-300 max-h-[80vh] overflow-y-auto">
-            {['Home', 'Education', 'Experience', 'Publications', 'Awards', 'Certifications', 'Projects', 'Skills', 'Extracurricular'].map((item) => (
+            {['Home', 'Education', 'Experience', 'Publications', 'Projects', 'Skills', 'Certifications', 'Awards', 'Extracurricular'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollTo(item.toLowerCase())}
@@ -572,49 +573,6 @@ export default function App() {
         </div>
       </Section>
 
-      {/* Skills Grid */}
-      <Section id="skills" title="Technical Skills" icon={Code}>
-        <div className="grid md:grid-cols-3 gap-5">
-          {DATA.skills.map((skillGroup, idx) => (
-            <div key={idx} className="bg-white/60 dark:bg-slate-900/40 backdrop-blur-md p-5 lg:p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300 hover:border-cyan-200 dark:hover:border-cyan-800/50 group">
-              <h3 className="text-base font-bold text-slate-900 dark:text-white mb-4 flex items-center">
-                <span className="w-6 h-[3px] bg-cyan-500 rounded-full mr-2.5 group-hover:w-10 transition-all duration-300"></span>
-                {skillGroup.category}
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {skillGroup.items.map((item, iIdx) => (
-                  <span key={iIdx} className="px-3 py-1 bg-slate-100 dark:bg-[#030712] text-slate-700 dark:text-slate-300 rounded-lg text-xs font-semibold border border-slate-200 dark:border-slate-800 group-hover:border-cyan-500/30 transition-colors duration-300 hover:bg-cyan-50 dark:hover:bg-cyan-900/30 hover:text-cyan-700 dark:hover:text-cyan-300 cursor-default">
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* Certifications Grid */}
-      <Section id="certifications" title="Certifications" icon={Shield}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {DATA.certifications.map((cert, idx) => (
-            <div key={idx} className="flex flex-col bg-white/60 dark:bg-slate-900/40 backdrop-blur-md p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-cyan-400/50 dark:hover:border-cyan-600/50 transition-all duration-300 group">
-              <div className="flex items-start justify-between gap-3 mb-3">
-                <h4 className="font-bold text-slate-900 dark:text-slate-100 text-sm leading-tight group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
-                  {cert.name}
-                </h4>
-                <Shield size={18} className="shrink-0 text-slate-300 dark:text-slate-700 group-hover:text-cyan-500 transition-colors" />
-              </div>
-              <div className="mt-auto flex justify-between items-center text-[11px] font-bold pt-3 border-t border-slate-100 dark:border-slate-800/80">
-                <span className="text-slate-500 dark:text-slate-400">{cert.issuer}</span>
-                <span className={`px-2 py-1 rounded-md ${cert.date === 'In Progress' ? 'bg-amber-100 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'}`}>
-                  {cert.date}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
-
       {/* Publications Section */}
       <Section id="publications" title="Research & Publications" icon={BookOpen}>
         <div className="grid gap-5">
@@ -673,6 +631,49 @@ export default function App() {
         </div>
       </Section>
 
+      {/* Skills Grid */}
+      <Section id="skills" title="Technical Skills" icon={Code}>
+        <div className="grid md:grid-cols-3 gap-5">
+          {DATA.skills.map((skillGroup, idx) => (
+            <div key={idx} className="bg-white/60 dark:bg-slate-900/40 backdrop-blur-md p-5 lg:p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300 hover:border-cyan-200 dark:hover:border-cyan-800/50 group">
+              <h3 className="text-base font-bold text-slate-900 dark:text-white mb-4 flex items-center">
+                <span className="w-6 h-[3px] bg-cyan-500 rounded-full mr-2.5 group-hover:w-10 transition-all duration-300"></span>
+                {skillGroup.category}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {skillGroup.items.map((item, iIdx) => (
+                  <span key={iIdx} className="px-3 py-1 bg-slate-100 dark:bg-[#030712] text-slate-700 dark:text-slate-300 rounded-lg text-xs font-semibold border border-slate-200 dark:border-slate-800 group-hover:border-cyan-500/30 transition-colors duration-300 hover:bg-cyan-50 dark:hover:bg-cyan-900/30 hover:text-cyan-700 dark:hover:text-cyan-300 cursor-default">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Certifications Grid */}
+      <Section id="certifications" title="Certifications" icon={Shield}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {DATA.certifications.map((cert, idx) => (
+            <div key={idx} className="flex flex-col bg-white/60 dark:bg-slate-900/40 backdrop-blur-md p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-cyan-400/50 dark:hover:border-cyan-600/50 transition-all duration-300 group">
+              <div className="flex items-start justify-between gap-3 mb-3">
+                <h4 className="font-bold text-slate-900 dark:text-slate-100 text-sm leading-tight group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
+                  {cert.name}
+                </h4>
+                <Shield size={18} className="shrink-0 text-slate-300 dark:text-slate-700 group-hover:text-cyan-500 transition-colors" />
+              </div>
+              <div className="mt-auto flex justify-between items-center text-[11px] font-bold pt-3 border-t border-slate-100 dark:border-slate-800/80">
+                <span className="text-slate-500 dark:text-slate-400">{cert.issuer}</span>
+                <span className={`px-2 py-1 rounded-md ${cert.date === 'In Progress' ? 'bg-amber-100 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'}`}>
+                  {cert.date}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
       {/* Awards Section */}
       <Section id="awards" title="Honors & Awards" icon={Award}>
         <div className="grid md:grid-cols-2 gap-5">
@@ -700,7 +701,7 @@ export default function App() {
       <Section id="extracurricular" title="Leadership & Extracurricular" icon={Users}>
         <div className="grid md:grid-cols-3 gap-5">
           {DATA.extracurricular.map((item, idx) => (
-            <div key={idx} className="bg-white/60 dark:bg-slate-900/40 backdrop-blur-md p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
+            <div key={idx} className="bg-white/60 dark:bg-slate-900/40 backdrop-blur-md p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300 group">
               <span className="text-[11px] font-bold text-cyan-600 dark:text-cyan-400 uppercase tracking-wider mb-2.5 block">{item.period}</span>
               <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1 group-hover:text-cyan-500 transition-colors">{item.role}</h3>
               <h4 className="text-xs font-bold text-slate-500 dark:text-slate-400 mb-3 pb-3 border-b border-slate-100 dark:border-slate-800">{item.organization}</h4>
