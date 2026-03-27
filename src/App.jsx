@@ -200,13 +200,13 @@ const DATA = {
 // --- COMPONENTS ---
 
 const Section = ({ id, title, icon: Icon, children }) => (
-  <section id={id} className="py-16 md:py-20 relative border-b border-slate-200/50 dark:border-slate-800/50 last:border-0 transition-colors duration-300">
-    <div className="max-w-7xl mx-auto px-6 relative z-10">
-      <div className="flex items-center space-x-4 mb-10 md:mb-12">
-        <div className="p-3 bg-cyan-100 dark:bg-cyan-500/10 rounded-xl text-cyan-600 dark:text-cyan-400 border border-cyan-200 dark:border-cyan-500/20 shadow-[0_0_15px_rgba(34,211,238,0.15)] transition-colors duration-300">
-          <Icon size={26} strokeWidth={2.5} />
+  <section id={id} className="py-12 md:py-16 relative border-b border-slate-200/50 dark:border-slate-800/50 last:border-0 transition-colors duration-300">
+    <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="flex items-center space-x-3 mb-8 md:mb-10">
+        <div className="p-2.5 bg-cyan-100 dark:bg-cyan-500/10 rounded-xl text-cyan-600 dark:text-cyan-400 border border-cyan-200 dark:border-cyan-500/20 shadow-[0_0_15px_rgba(34,211,238,0.15)] transition-colors duration-300">
+          <Icon size={22} strokeWidth={2.5} />
         </div>
-        <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white transition-colors duration-300 tracking-tight">{title}</h2>
+        <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white transition-colors duration-300 tracking-tight">{title}</h2>
       </div>
       {children}
     </div>
@@ -214,36 +214,36 @@ const Section = ({ id, title, icon: Icon, children }) => (
 );
 
 const TerminalGraphic = () => (
-  <div className="relative w-full aspect-[4/5] sm:aspect-square max-w-[400px] mx-auto rounded-2xl border border-slate-300/50 dark:border-slate-700/50 shadow-2xl overflow-hidden flex flex-col group bg-white/80 dark:bg-[#0f172a]/90 backdrop-blur-xl transition-all duration-500 hover:shadow-[0_0_30px_rgba(34,211,238,0.15)] hover:border-cyan-500/30">
+  <div className="relative w-full aspect-[4/5] sm:aspect-[5/4] max-w-[360px] mx-auto rounded-xl border border-slate-300/50 dark:border-slate-700/50 shadow-2xl overflow-hidden flex flex-col group bg-white/80 dark:bg-[#0f172a]/90 backdrop-blur-xl transition-all duration-500 hover:shadow-[0_0_30px_rgba(34,211,238,0.15)] hover:border-cyan-500/30">
     
     {/* Terminal Header */}
-    <div className="h-10 w-full bg-slate-100 dark:bg-[#1e293b] flex items-center px-4 border-b border-slate-200 dark:border-slate-700/50 transition-colors">
-      <div className="flex space-x-2">
-        <div className="w-3 h-3 rounded-full bg-rose-500/90 shadow-[0_0_5px_rgba(244,63,94,0.5)]"></div>
-        <div className="w-3 h-3 rounded-full bg-amber-500/90 shadow-[0_0_5px_rgba(245,158,11,0.5)]"></div>
-        <div className="w-3 h-3 rounded-full bg-emerald-500/90 shadow-[0_0_5px_rgba(16,185,129,0.5)]"></div>
+    <div className="h-8 w-full bg-slate-100 dark:bg-[#1e293b] flex items-center px-3 border-b border-slate-200 dark:border-slate-700/50 transition-colors">
+      <div className="flex space-x-1.5">
+        <div className="w-2.5 h-2.5 rounded-full bg-rose-500/90 shadow-[0_0_5px_rgba(244,63,94,0.5)]"></div>
+        <div className="w-2.5 h-2.5 rounded-full bg-amber-500/90 shadow-[0_0_5px_rgba(245,158,11,0.5)]"></div>
+        <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/90 shadow-[0_0_5px_rgba(16,185,129,0.5)]"></div>
       </div>
-      <div className="mx-auto text-xs font-mono text-slate-500 dark:text-slate-400 select-none">
+      <div className="mx-auto text-[10px] sm:text-xs font-mono text-slate-500 dark:text-slate-400 select-none">
         amer@mosally:~
       </div>
     </div>
 
     {/* Terminal Body */}
-    <div className="flex-1 p-5 relative overflow-hidden flex flex-col justify-center">
+    <div className="flex-1 p-4 sm:p-5 relative overflow-hidden flex flex-col justify-center text-left">
       {/* Background Icon */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] dark:opacity-10 pointer-events-none">
-        <Shield size={200} strokeWidth={1} className="text-cyan-500" />
+      <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] dark:opacity-[0.07] pointer-events-none">
+        <Shield size={160} strokeWidth={1} className="text-cyan-500" />
       </div>
 
-      <div className="relative z-10 space-y-4 font-mono text-sm sm:text-base">
+      <div className="relative z-10 space-y-3 sm:space-y-4 font-mono text-xs sm:text-sm">
         <div className="transform group-hover:translate-x-1 transition-transform duration-300">
           <span className="text-pink-500 font-bold">root@sys</span>
           <span className="text-slate-400">:</span>
           <span className="text-cyan-600 dark:text-cyan-400">~</span>
           <span className="text-slate-400 mr-2">$</span>
           <span className="text-slate-700 dark:text-slate-200">whoami</span>
-          <div className="text-emerald-600 dark:text-emerald-400 ml-4 mt-2 flex items-center">
-            <ChevronRight size={14} className="mr-1" />
+          <div className="text-emerald-600 dark:text-emerald-400 ml-2 sm:ml-3 mt-1.5 flex items-center">
+            <ChevronRight size={12} className="mr-1" />
             amer_mosally
           </div>
         </div>
@@ -254,10 +254,10 @@ const TerminalGraphic = () => (
           <span className="text-cyan-600 dark:text-cyan-400">~</span>
           <span className="text-slate-400 mr-2">$</span>
           <span className="text-slate-700 dark:text-slate-200">cat skills.txt</span>
-          <div className="text-blue-600 dark:text-blue-400 ml-4 mt-2 leading-relaxed">
-            <div className="flex items-center"><ChevronRight size={14} className="mr-1" /> Pentesting</div>
-            <div className="flex items-center"><ChevronRight size={14} className="mr-1" /> Cloud Security</div>
-            <div className="flex items-center"><ChevronRight size={14} className="mr-1" /> Automation</div>
+          <div className="text-blue-600 dark:text-blue-400 ml-2 sm:ml-3 mt-1.5 leading-relaxed">
+            <div className="flex items-center"><ChevronRight size={12} className="mr-1" /> Pentesting</div>
+            <div className="flex items-center"><ChevronRight size={12} className="mr-1" /> Cloud Security</div>
+            <div className="flex items-center"><ChevronRight size={12} className="mr-1" /> Automation</div>
           </div>
         </div>
 
@@ -266,7 +266,7 @@ const TerminalGraphic = () => (
           <span className="text-slate-400">:</span>
           <span className="text-cyan-600 dark:text-cyan-400">~</span>
           <span className="text-slate-400 mr-2">$</span>
-          <span className="w-2 h-5 bg-slate-400 dark:bg-slate-200 inline-block align-middle animate-pulse"></span>
+          <span className="w-1.5 h-4 bg-slate-400 dark:bg-slate-200 inline-block align-middle animate-pulse ml-1"></span>
         </div>
       </div>
     </div>
@@ -333,20 +333,20 @@ export default function App() {
 
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 dark:bg-[#030712]/80 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800 shadow-sm' : 'bg-transparent'}`}>
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-6 h-16 md:h-20 flex items-center justify-between">
           
-          <div className="font-extrabold text-2xl text-slate-900 dark:text-white tracking-tighter flex items-center gap-1 cursor-pointer" onClick={() => scrollTo('home')}>
-            <Shield className="text-cyan-600 dark:text-cyan-400" size={24} />
+          <div className="font-extrabold text-xl md:text-2xl text-slate-900 dark:text-white tracking-tighter flex items-center gap-1 cursor-pointer" onClick={() => scrollTo('home')}>
+            <Shield className="text-cyan-600 dark:text-cyan-400" size={22} />
             <span>AM<span className="text-cyan-600 dark:text-cyan-400">.</span></span>
           </div>
           
           {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center space-x-1 xl:space-x-2 bg-slate-100/50 dark:bg-slate-800/30 p-1.5 rounded-full border border-slate-200/50 dark:border-slate-700/50 backdrop-blur-md">
+          <div className="hidden lg:flex items-center space-x-1 xl:space-x-2 bg-slate-100/50 dark:bg-slate-800/30 p-1 rounded-full border border-slate-200/50 dark:border-slate-700/50 backdrop-blur-md">
             {['Home', 'Education', 'Experience', 'Publications', 'Projects'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollTo(item.toLowerCase())}
-                className={`relative px-4 py-2 text-sm font-semibold rounded-full transition-all duration-300 ${
+                className={`relative px-4 py-1.5 text-xs md:text-sm font-semibold rounded-full transition-all duration-300 ${
                   activeSection === item.toLowerCase() 
                     ? 'text-cyan-700 dark:text-cyan-300 bg-white dark:bg-slate-800 shadow-sm' 
                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/50 dark:hover:bg-slate-700/50'
@@ -358,16 +358,16 @@ export default function App() {
             
             {/* More Dropdown */}
             <div className="relative group px-1">
-              <button className="flex items-center space-x-1 px-3 py-2 text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-full hover:bg-slate-200/50 dark:hover:bg-slate-700/50 transition-all">
+              <button className="flex items-center space-x-1 px-3 py-1.5 text-xs md:text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-full hover:bg-slate-200/50 dark:hover:bg-slate-700/50 transition-all">
                 <span>More</span>
                 <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />
               </button>
-              <div className="absolute top-full right-0 mt-3 w-48 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-slate-200 dark:border-slate-800 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col p-2 translate-y-2 group-hover:translate-y-0">
+              <div className="absolute top-full right-0 mt-2 w-48 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-slate-200 dark:border-slate-800 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col p-2 translate-y-2 group-hover:translate-y-0">
                 {['Awards', 'Certifications', 'Skills', 'Extracurricular'].map((item) => (
                   <button
                     key={item}
                     onClick={() => scrollTo(item.toLowerCase())}
-                    className={`text-left px-4 py-2.5 text-sm font-semibold rounded-lg transition-colors ${
+                    className={`text-left px-4 py-2 text-sm font-semibold rounded-lg transition-colors ${
                       activeSection === item.toLowerCase() 
                         ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' 
                         : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:text-slate-900 dark:hover:text-white'
@@ -380,43 +380,43 @@ export default function App() {
             </div>
           </div>
           
-          <div className="flex items-center space-x-3 sm:space-x-4">
+          <div className="flex items-center space-x-2 md:space-x-4">
             {/* Dark Mode Toggle */}
             <button 
               onClick={() => setIsDarkMode(!isDarkMode)}
-              className="p-2.5 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-full transition-all duration-300 border border-slate-200 dark:border-slate-700"
+              className="p-2 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-full transition-all duration-300 border border-slate-200 dark:border-slate-700"
               aria-label="Toggle dark mode"
             >
-              {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
+              {isDarkMode ? <Sun size={16} /> : <Moon size={16} />}
             </button>
 
             {/* Desktop Contact Button */}
             <a 
               href={`mailto:${DATA.personal.email}`}
-              className="hidden lg:flex items-center space-x-2 px-5 py-2.5 bg-slate-900 hover:bg-slate-800 dark:bg-cyan-500 dark:hover:bg-cyan-400 text-white dark:text-slate-950 text-sm font-bold rounded-full transition-all duration-300 shadow-[0_0_15px_rgba(34,211,238,0)] hover:shadow-[0_0_20px_rgba(34,211,238,0.4)]"
+              className="hidden lg:flex items-center space-x-1.5 px-4 py-2 bg-slate-900 hover:bg-slate-800 dark:bg-cyan-500 dark:hover:bg-cyan-400 text-white dark:text-slate-950 text-sm font-bold rounded-full transition-all duration-300 shadow-[0_0_15px_rgba(34,211,238,0)] hover:shadow-[0_0_20px_rgba(34,211,238,0.4)]"
             >
-              <Mail size={16} />
+              <Mail size={14} />
               <span>Let's Talk</span>
             </a>
             
             {/* Mobile Menu Toggle */}
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2.5 text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 rounded-full transition-colors border border-slate-200 dark:border-slate-700"
+              className="lg:hidden p-2 text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 rounded-full transition-colors border border-slate-200 dark:border-slate-700"
             >
-              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              {isMobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
           </div>
         </div>
         
         {/* Mobile Navigation Dropdown */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 w-full bg-white/95 dark:bg-[#030712]/95 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 shadow-2xl px-6 py-6 flex flex-col space-y-2 transition-all duration-300 max-h-[80vh] overflow-y-auto">
+          <div className="lg:hidden absolute top-full left-0 w-full bg-white/95 dark:bg-[#030712]/95 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 shadow-2xl px-6 py-4 flex flex-col space-y-1.5 transition-all duration-300 max-h-[80vh] overflow-y-auto">
             {['Home', 'Education', 'Experience', 'Publications', 'Awards', 'Certifications', 'Projects', 'Skills', 'Extracurricular'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollTo(item.toLowerCase())}
-                className={`text-left px-4 py-3 rounded-xl text-base font-semibold transition-all ${
+                className={`text-left px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
                   activeSection === item.toLowerCase() 
                     ? 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-100 dark:border-cyan-500/20' 
                     : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900'
@@ -427,20 +427,20 @@ export default function App() {
             ))}
             
             {/* Mobile Contact Grid */}
-            <div className="grid grid-cols-2 gap-3 mt-6 pt-6 border-t border-slate-200 dark:border-slate-800">
+            <div className="grid grid-cols-2 gap-3 mt-4 pt-4 border-t border-slate-200 dark:border-slate-800">
               <a 
                 href={`mailto:${DATA.personal.email}`}
-                className="flex items-center justify-center px-4 py-3 bg-slate-900 dark:bg-cyan-500 text-white dark:text-slate-900 text-sm font-bold rounded-xl transition-all shadow-md"
+                className="flex items-center justify-center px-4 py-2.5 bg-slate-900 dark:bg-cyan-500 text-white dark:text-slate-900 text-sm font-bold rounded-xl transition-all shadow-md"
               >
-                <Mail size={16} className="mr-2" /> Email
+                <Mail size={14} className="mr-2" /> Email
               </a>
               <a 
                 href={DATA.personal.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center px-4 py-3 bg-[#0a66c2] hover:bg-[#004182] text-white text-sm font-bold rounded-xl transition-colors shadow-md"
+                className="flex items-center justify-center px-4 py-2.5 bg-[#0a66c2] hover:bg-[#004182] text-white text-sm font-bold rounded-xl transition-colors shadow-md"
               >
-                <Linkedin size={16} className="mr-2" /> LinkedIn
+                <Linkedin size={14} className="mr-2" /> LinkedIn
               </a>
             </div>
           </div>
@@ -448,52 +448,52 @@ export default function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="pt-32 pb-12 md:pt-40 md:pb-16 px-6 max-w-7xl mx-auto relative z-10">
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-8 items-center justify-between">
+      <section id="home" className="pt-28 pb-10 md:pt-36 md:pb-14 px-6 max-w-6xl mx-auto relative z-10">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-8 items-center justify-between">
           
-          <div className="flex-1 space-y-8 text-center lg:text-left">
-            <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-cyan-100 dark:bg-cyan-500/10 border border-cyan-200 dark:border-cyan-500/20 text-cyan-700 dark:text-cyan-300 text-sm font-bold mb-2">
-              <span className="relative flex h-2 w-2">
+          <div className="flex-1 space-y-6 text-center lg:text-left">
+            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-cyan-100 dark:bg-cyan-500/10 border border-cyan-200 dark:border-cyan-500/20 text-cyan-700 dark:text-cyan-300 text-xs font-bold mb-1">
+              <span className="relative flex h-1.5 w-1.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-500"></span>
               </span>
               <span>Available for New Opportunities</span>
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.1]">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.15]">
               Hi, I'm <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600 dark:from-cyan-400 dark:to-blue-500">
                 {DATA.personal.name}
               </span>
             </h1>
             
-            <h2 className="text-2xl md:text-3xl text-slate-600 dark:text-slate-300 font-bold">
+            <h2 className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 font-bold">
               {DATA.personal.headline}
             </h2>
             
-            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            <p className="text-base md:text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mx-auto lg:mx-0">
               {DATA.personal.summary}
             </p>
             
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
-              <a href={`mailto:${DATA.personal.email}`} className="flex items-center space-x-2 px-6 py-3 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 rounded-full font-bold transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
-                <Mail size={18} />
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
+              <a href={`mailto:${DATA.personal.email}`} className="flex items-center space-x-2 px-5 py-2.5 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 rounded-full text-sm font-bold transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+                <Mail size={16} />
                 <span>Contact Me</span>
               </a>
-              <a href={DATA.personal.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 px-6 py-3 bg-white dark:bg-slate-800/50 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-white border border-slate-200 dark:border-slate-700 rounded-full font-bold transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5 backdrop-blur-sm">
-                <Linkedin size={18} className="text-[#0a66c2] dark:text-[#70b5f9]" />
+              <a href={DATA.personal.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 px-5 py-2.5 bg-white dark:bg-slate-800/50 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-white border border-slate-200 dark:border-slate-700 rounded-full text-sm font-bold transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5 backdrop-blur-sm">
+                <Linkedin size={16} className="text-[#0a66c2] dark:text-[#70b5f9]" />
                 <span>LinkedIn</span>
               </a>
-              <div className="flex items-center space-x-2 text-slate-500 dark:text-slate-400 px-4 py-2 font-medium">
-                <MapPin size={18} />
+              <div className="flex items-center space-x-1.5 text-slate-500 dark:text-slate-400 px-3 py-2 text-sm font-medium">
+                <MapPin size={16} />
                 <span>Taiwan / Saudi Arabia</span>
               </div>
             </div>
           </div>
 
           {/* Terminal Graphic */}
-          <div className="w-full max-w-md lg:w-[45%] lg:flex-shrink-0 relative">
-            <div className="absolute -inset-4 bg-gradient-to-tr from-cyan-500/20 to-blue-500/20 blur-2xl rounded-[3rem] -z-10"></div>
+          <div className="w-full max-w-[340px] lg:w-[40%] lg:flex-shrink-0 relative mt-4 lg:mt-0">
+            <div className="absolute -inset-3 bg-gradient-to-tr from-cyan-500/20 to-blue-500/20 blur-2xl rounded-[3rem] -z-10"></div>
             <TerminalGraphic />
           </div>
 
@@ -502,30 +502,30 @@ export default function App() {
 
       {/* Education Section */}
       <Section id="education" title="Education" icon={GraduationCap}>
-        <div className="grid gap-6">
+        <div className="grid gap-5">
           {DATA.education.map((edu, idx) => (
-            <div key={idx} className="bg-gradient-to-br from-slate-900 to-slate-800 dark:from-[#0f172a] dark:to-[#020617] text-white p-8 sm:p-10 rounded-3xl shadow-xl relative overflow-hidden border border-slate-700 dark:border-slate-800 group hover:border-cyan-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(34,211,238,0.1)]">
+            <div key={idx} className="bg-gradient-to-br from-slate-900 to-slate-800 dark:from-[#0f172a] dark:to-[#020617] text-white p-6 sm:p-8 rounded-2xl shadow-xl relative overflow-hidden border border-slate-700 dark:border-slate-800 group hover:border-cyan-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(34,211,238,0.1)]">
               {/* Background Glow */}
-              <div className="absolute -right-20 -top-20 w-64 h-64 bg-cyan-500/20 rounded-full blur-[80px] group-hover:bg-cyan-500/30 transition-colors duration-500"></div>
+              <div className="absolute -right-20 -top-20 w-56 h-56 bg-cyan-500/20 rounded-full blur-[60px] group-hover:bg-cyan-500/30 transition-colors duration-500"></div>
               
               <div className="absolute right-0 bottom-0 opacity-5 transform translate-x-1/4 translate-y-1/4 group-hover:scale-110 transition-transform duration-700">
-                <GraduationCap size={250} />
+                <GraduationCap size={200} />
               </div>
               
               <div className="relative z-10">
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-300">{edu.degree}</h3>
-                  <span className="px-4 py-2 bg-cyan-500/20 text-cyan-300 rounded-full font-bold border border-cyan-500/30 backdrop-blur-sm whitespace-nowrap">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-5 gap-3">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-300">{edu.degree}</h3>
+                  <span className="px-3 py-1.5 text-sm bg-cyan-500/20 text-cyan-300 rounded-full font-bold border border-cyan-500/30 backdrop-blur-sm whitespace-nowrap">
                     {edu.period}
                   </span>
                 </div>
                 
-                <p className="text-lg sm:text-xl text-slate-300 font-medium">{edu.institution}</p>
+                <p className="text-base sm:text-lg text-slate-300 font-medium">{edu.institution}</p>
                 
-                <div className="flex flex-wrap gap-4 mt-8">
-                  <div className="bg-slate-950/40 backdrop-blur-md px-5 py-3 rounded-2xl border border-slate-700/50">
-                    <span className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Concentration</span>
-                    <span className="font-extrabold text-xl text-blue-400 mt-1 block">{edu.details.replace('Major Concentration: ', '')}</span>
+                <div className="flex flex-wrap gap-3 mt-6">
+                  <div className="bg-slate-950/40 backdrop-blur-md px-4 py-2.5 rounded-xl border border-slate-700/50">
+                    <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">Concentration</span>
+                    <span className="font-extrabold text-lg text-blue-400 block">{edu.details.replace('Major Concentration: ', '')}</span>
                   </div>
                 </div>
               </div>
@@ -536,38 +536,38 @@ export default function App() {
 
       {/* Experience Section */}
       <Section id="experience" title="Professional Experience" icon={Briefcase}>
-        <div className="relative pl-4 sm:pl-0 before:hidden sm:before:block before:absolute before:inset-0 before:ml-5 before:-translate-x-px before:h-full before:w-0.5 before:bg-gradient-to-b before:from-cyan-500/50 before:via-blue-500/50 before:to-transparent">
-          <div className="space-y-12">
+        <div className="relative pl-3 sm:pl-0 before:hidden sm:before:block before:absolute before:inset-0 before:ml-4 before:-translate-x-px before:h-full before:w-[2px] before:bg-gradient-to-b before:from-cyan-500/50 before:via-blue-500/50 before:to-transparent">
+          <div className="space-y-8 md:space-y-10">
             {DATA.experience.map((exp, idx) => (
               <div key={idx} className="relative flex flex-col sm:flex-row items-start group">
                 
                 {/* Timeline Dot (Desktop) */}
-                <div className="hidden sm:flex absolute left-0 mt-1.5 items-center justify-center w-10 h-10 rounded-full border-4 border-slate-50 dark:border-[#030712] bg-cyan-500 dark:bg-cyan-400 text-white dark:text-slate-900 shadow-[0_0_10px_rgba(34,211,238,0.5)] z-10 transition-transform duration-300 group-hover:scale-110">
-                  {exp.type === 'Academic' ? <GraduationCap size={18} /> : <Shield size={18} />}
+                <div className="hidden sm:flex absolute left-0 mt-1.5 items-center justify-center w-8 h-8 rounded-full border-[3px] border-slate-50 dark:border-[#030712] bg-cyan-500 dark:bg-cyan-400 text-white dark:text-slate-900 shadow-[0_0_10px_rgba(34,211,238,0.5)] z-10 transition-transform duration-300 group-hover:scale-110">
+                  {exp.type === 'Academic' ? <GraduationCap size={14} /> : <Shield size={14} />}
                 </div>
 
                 {/* Content Card */}
-                <div className="sm:ml-16 w-full bg-white/60 dark:bg-slate-900/40 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl hover:shadow-cyan-500/5 dark:hover:shadow-cyan-500/10 transition-all duration-300 group-hover:border-cyan-300/50 dark:group-hover:border-cyan-700/50 group-hover:-translate-y-1 relative overflow-hidden">
+                <div className="sm:ml-12 w-full bg-white/60 dark:bg-slate-900/40 backdrop-blur-md p-5 sm:p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg hover:shadow-cyan-500/5 dark:hover:shadow-cyan-500/10 transition-all duration-300 group-hover:border-cyan-300/50 dark:group-hover:border-cyan-700/50 group-hover:-translate-y-1 relative overflow-hidden">
                   {/* Subtle top gradient line */}
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
-                  <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-4 gap-3 lg:gap-0">
+                  <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-3 gap-2 lg:gap-0">
                     <div>
-                      <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">{exp.role}</h3>
-                      <h4 className="text-base sm:text-lg font-semibold text-cyan-600 dark:text-cyan-400 mt-1">{exp.company}</h4>
+                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">{exp.role}</h3>
+                      <h4 className="text-sm sm:text-base font-semibold text-cyan-600 dark:text-cyan-400 mt-0.5">{exp.company}</h4>
                     </div>
-                    <div className="flex flex-col items-start lg:items-end gap-2">
-                      <span className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider bg-slate-100 dark:bg-slate-800/80 px-3 py-1 rounded-full">{exp.period}</span>
-                      <span className={`text-xs font-bold px-3 py-1 rounded-full ${exp.type === 'Academic' ? 'bg-amber-100 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-500/20' : 'bg-emerald-100 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20'}`}>
+                    <div className="flex flex-col items-start lg:items-end gap-1.5">
+                      <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider bg-slate-100 dark:bg-slate-800/80 px-2.5 py-1 rounded-full">{exp.period}</span>
+                      <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full ${exp.type === 'Academic' ? 'bg-amber-100 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-500/20' : 'bg-emerald-100 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20'}`}>
                         {exp.type}
                       </span>
                     </div>
                   </div>
                   
-                  <ul className="space-y-3 mt-6">
+                  <ul className="space-y-2 mt-4">
                     {exp.bullets.map((bullet, bIdx) => (
-                      <li key={bIdx} className="flex items-start text-sm sm:text-base text-slate-600 dark:text-slate-300">
-                        <ChevronRight size={18} className="shrink-0 text-cyan-500 mt-0.5 mr-3" />
+                      <li key={bIdx} className="flex items-start text-sm text-slate-600 dark:text-slate-300">
+                        <ChevronRight size={16} className="shrink-0 text-cyan-500 mt-0.5 mr-2.5" />
                         <span className="leading-relaxed">{bullet}</span>
                       </li>
                     ))}
@@ -579,18 +579,18 @@ export default function App() {
         </div>
       </Section>
 
-      {/* Skills Grid - Moved up for better technical visibility */}
+      {/* Skills Grid */}
       <Section id="skills" title="Technical Skills" icon={Code}>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-5">
           {DATA.skills.map((skillGroup, idx) => (
-            <div key={idx} className="bg-white/60 dark:bg-slate-900/40 backdrop-blur-md p-6 lg:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300 hover:border-cyan-200 dark:hover:border-cyan-800/50 group">
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-6 flex items-center">
-                <span className="w-8 h-1 bg-cyan-500 rounded-full mr-3 group-hover:w-12 transition-all duration-300"></span>
+            <div key={idx} className="bg-white/60 dark:bg-slate-900/40 backdrop-blur-md p-5 lg:p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300 hover:border-cyan-200 dark:hover:border-cyan-800/50 group">
+              <h3 className="text-base font-bold text-slate-900 dark:text-white mb-4 flex items-center">
+                <span className="w-6 h-[3px] bg-cyan-500 rounded-full mr-2.5 group-hover:w-10 transition-all duration-300"></span>
                 {skillGroup.category}
               </h3>
-              <div className="flex flex-wrap gap-2.5">
+              <div className="flex flex-wrap gap-2">
                 {skillGroup.items.map((item, iIdx) => (
-                  <span key={iIdx} className="px-3.5 py-1.5 bg-slate-100 dark:bg-[#030712] text-slate-700 dark:text-slate-300 rounded-lg text-sm font-semibold border border-slate-200 dark:border-slate-800 group-hover:border-cyan-500/30 transition-colors duration-300 hover:bg-cyan-50 dark:hover:bg-cyan-900/30 hover:text-cyan-700 dark:hover:text-cyan-300 cursor-default">
+                  <span key={iIdx} className="px-3 py-1 bg-slate-100 dark:bg-[#030712] text-slate-700 dark:text-slate-300 rounded-lg text-xs font-semibold border border-slate-200 dark:border-slate-800 group-hover:border-cyan-500/30 transition-colors duration-300 hover:bg-cyan-50 dark:hover:bg-cyan-900/30 hover:text-cyan-700 dark:hover:text-cyan-300 cursor-default">
                     {item}
                   </span>
                 ))}
@@ -602,16 +602,16 @@ export default function App() {
 
       {/* Certifications Grid */}
       <Section id="certifications" title="Certifications" icon={Shield}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {DATA.certifications.map((cert, idx) => (
-            <div key={idx} className="flex flex-col bg-white/60 dark:bg-slate-900/40 backdrop-blur-md p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-cyan-400/50 dark:hover:border-cyan-600/50 transition-all duration-300 group">
-              <div className="flex items-start justify-between gap-4 mb-4">
-                <h4 className="font-bold text-slate-900 dark:text-slate-100 text-sm md:text-base leading-tight group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
+            <div key={idx} className="flex flex-col bg-white/60 dark:bg-slate-900/40 backdrop-blur-md p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-cyan-400/50 dark:hover:border-cyan-600/50 transition-all duration-300 group">
+              <div className="flex items-start justify-between gap-3 mb-3">
+                <h4 className="font-bold text-slate-900 dark:text-slate-100 text-sm leading-tight group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
                   {cert.name}
                 </h4>
-                <Shield size={20} className="shrink-0 text-slate-300 dark:text-slate-700 group-hover:text-cyan-500 transition-colors" />
+                <Shield size={18} className="shrink-0 text-slate-300 dark:text-slate-700 group-hover:text-cyan-500 transition-colors" />
               </div>
-              <div className="mt-auto flex justify-between items-center text-xs font-bold pt-4 border-t border-slate-100 dark:border-slate-800/80">
+              <div className="mt-auto flex justify-between items-center text-[11px] font-bold pt-3 border-t border-slate-100 dark:border-slate-800/80">
                 <span className="text-slate-500 dark:text-slate-400">{cert.issuer}</span>
                 <span className={`px-2 py-1 rounded-md ${cert.date === 'In Progress' ? 'bg-amber-100 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'}`}>
                   {cert.date}
@@ -624,27 +624,27 @@ export default function App() {
 
       {/* Publications Section */}
       <Section id="publications" title="Research & Publications" icon={BookOpen}>
-        <div className="grid gap-6">
+        <div className="grid gap-5">
           {DATA.publications.map((pub, idx) => (
-            <div key={idx} className="bg-white/60 dark:bg-slate-900/40 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 group relative overflow-hidden flex flex-col md:flex-row gap-6">
+            <div key={idx} className="bg-white/60 dark:bg-slate-900/40 backdrop-blur-md p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300 group relative overflow-hidden flex flex-col md:flex-row gap-5">
               
               {/* Left Accent Bar */}
-              <div className="hidden md:block absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-cyan-400 to-blue-600 transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out"></div>
+              <div className="hidden md:block absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-cyan-400 to-blue-600 transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out"></div>
               
-              <div className="md:w-1/4 shrink-0 flex flex-col md:items-start items-start justify-start gap-3">
-                <span className="inline-flex px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full text-xs font-bold shadow-sm">
+              <div className="md:w-1/4 shrink-0 flex flex-col md:items-start items-start justify-start gap-2.5">
+                <span className="inline-flex px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full text-[11px] font-bold shadow-sm">
                   {pub.date}
                 </span>
-                <span className="flex items-center gap-1.5 text-cyan-700 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-500/10 px-3 py-1.5 rounded-lg text-sm font-bold border border-cyan-100 dark:border-cyan-500/20">
-                  <FileText size={16} />
+                <span className="flex items-center gap-1.5 text-cyan-700 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-500/10 px-2.5 py-1 rounded-lg text-xs font-bold border border-cyan-100 dark:border-cyan-500/20">
+                  <FileText size={14} />
                   {pub.type}
                 </span>
               </div>
               
               <div className="md:w-3/4">
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors duration-300">{pub.title}</h3>
-                <p className="text-sm font-semibold text-slate-500 dark:text-slate-400 mb-4">{pub.publisher}</p>
-                <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors duration-300">{pub.title}</h3>
+                <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-3">{pub.publisher}</p>
+                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                   {pub.description}
                 </p>
               </div>
@@ -655,18 +655,18 @@ export default function App() {
 
       {/* Projects Section */}
       <Section id="projects" title="Projects & Architecture" icon={FolderGit2}>
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5">
           {DATA.projects.map((project, idx) => (
-            <div key={idx} className="bg-white/60 dark:bg-slate-900/40 backdrop-blur-md p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 group flex flex-col h-full relative overflow-hidden">
+            <div key={idx} className="bg-white/60 dark:bg-slate-900/40 backdrop-blur-md p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg hover:-translate-y-1.5 transition-all duration-500 group flex flex-col h-full relative overflow-hidden">
               {/* Decorative top-right corner */}
-              <div className="absolute -top-10 -right-10 w-32 h-32 bg-cyan-500/5 dark:bg-cyan-500/10 rounded-full blur-2xl group-hover:bg-cyan-500/20 transition-colors duration-500"></div>
+              <div className="absolute -top-8 -right-8 w-24 h-24 bg-cyan-500/5 dark:bg-cyan-500/10 rounded-full blur-xl group-hover:bg-cyan-500/20 transition-colors duration-500"></div>
               
-              <div className="mb-6 relative z-10">
-                <FolderGit2 size={32} className="text-slate-300 dark:text-slate-700 mb-4 group-hover:text-cyan-500 transition-colors duration-300" strokeWidth={1.5} />
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 line-clamp-2">{project.title}</h3>
-                <div className="flex flex-wrap gap-2">
+              <div className="mb-4 relative z-10">
+                <FolderGit2 size={28} className="text-slate-300 dark:text-slate-700 mb-3 group-hover:text-cyan-500 transition-colors duration-300" strokeWidth={1.5} />
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3 line-clamp-2">{project.title}</h3>
+                <div className="flex flex-wrap gap-1.5">
                   {project.tech.split(', ').map((tech, tIdx) => (
-                    <span key={tIdx} className="inline-block px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-md text-xs font-bold">
+                    <span key={tIdx} className="inline-block px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-md text-[11px] font-bold">
                       {tech}
                     </span>
                   ))}
@@ -682,18 +682,18 @@ export default function App() {
 
       {/* Awards Section */}
       <Section id="awards" title="Honors & Awards" icon={Award}>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-5">
           {DATA.awards.map((award, idx) => (
-            <div key={idx} className="bg-gradient-to-br from-white to-slate-50 dark:from-slate-900/80 dark:to-slate-900/40 backdrop-blur-md p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 group flex gap-5">
+            <div key={idx} className="bg-gradient-to-br from-white to-slate-50 dark:from-slate-900/80 dark:to-slate-900/40 backdrop-blur-md p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300 group flex gap-4">
               <div className="shrink-0">
-                <div className="p-4 bg-amber-100/50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 rounded-2xl border border-amber-200/50 dark:border-amber-500/20 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-                  <Award size={28} strokeWidth={2} />
+                <div className="p-3 bg-amber-100/50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 rounded-xl border border-amber-200/50 dark:border-amber-500/20 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+                  <Award size={24} strokeWidth={2} />
                 </div>
               </div>
               <div>
-                <span className="inline-block text-xs font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-2">{award.date}</span>
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">{award.title}</h3>
-                <p className="text-sm font-bold text-amber-600 dark:text-amber-500 mb-3">{award.issuer}</p>
+                <span className="inline-block text-[11px] font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">{award.date}</span>
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">{award.title}</h3>
+                <p className="text-xs font-bold text-amber-600 dark:text-amber-500 mb-2.5">{award.issuer}</p>
                 <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
                   {award.description}
                 </p>
@@ -705,12 +705,12 @@ export default function App() {
 
       {/* Extracurricular Activities */}
       <Section id="extracurricular" title="Leadership & Extracurricular" icon={Users}>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-5">
           {DATA.extracurricular.map((item, idx) => (
-            <div key={idx} className="bg-white/60 dark:bg-slate-900/40 backdrop-blur-md p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
-              <span className="text-xs font-bold text-cyan-600 dark:text-cyan-400 uppercase tracking-wider mb-3 block">{item.period}</span>
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1 group-hover:text-cyan-500 transition-colors">{item.role}</h3>
-              <h4 className="text-sm font-bold text-slate-500 dark:text-slate-400 mb-4 pb-4 border-b border-slate-100 dark:border-slate-800">{item.organization}</h4>
+            <div key={idx} className="bg-white/60 dark:bg-slate-900/40 backdrop-blur-md p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
+              <span className="text-[11px] font-bold text-cyan-600 dark:text-cyan-400 uppercase tracking-wider mb-2.5 block">{item.period}</span>
+              <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1 group-hover:text-cyan-500 transition-colors">{item.role}</h3>
+              <h4 className="text-xs font-bold text-slate-500 dark:text-slate-400 mb-3 pb-3 border-b border-slate-100 dark:border-slate-800">{item.organization}</h4>
               <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                 {item.description}
               </p>
@@ -720,21 +720,21 @@ export default function App() {
       </Section>
 
       {/* Footer */}
-      <footer className="bg-white dark:bg-[#030712] text-slate-500 dark:text-slate-400 py-12 md:py-16 border-t border-slate-200 dark:border-slate-900 relative z-10">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <div className="inline-flex items-center justify-center p-3 bg-cyan-100 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 rounded-2xl mb-6 shadow-[0_0_15px_rgba(34,211,238,0.15)]">
-            <Shield size={32} strokeWidth={1.5} />
+      <footer className="bg-white dark:bg-[#030712] text-slate-500 dark:text-slate-400 py-10 md:py-12 border-t border-slate-200 dark:border-slate-900 relative z-10">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <div className="inline-flex items-center justify-center p-2.5 bg-cyan-100 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 rounded-xl mb-5 shadow-[0_0_15px_rgba(34,211,238,0.15)]">
+            <Shield size={26} strokeWidth={1.5} />
           </div>
-          <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white mb-8 tracking-tight">Let's build something secure.</h2>
-          <div className="flex justify-center gap-4 mb-10">
-            <a href={`mailto:${DATA.personal.email}`} className="flex items-center gap-2 px-6 py-3 bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 rounded-full text-slate-700 dark:text-slate-300 font-bold transition-all shadow-sm">
-              <Mail size={18} /> Email Me
+          <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight">Let's build something secure.</h2>
+          <div className="flex justify-center gap-3 mb-8">
+            <a href={`mailto:${DATA.personal.email}`} className="flex items-center gap-1.5 px-5 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 rounded-full text-slate-700 dark:text-slate-300 text-sm font-bold transition-all shadow-sm">
+              <Mail size={16} /> Email Me
             </a>
-            <a href={DATA.personal.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 rounded-full text-slate-700 dark:text-slate-300 font-bold transition-all shadow-sm">
-              <Linkedin size={18} className="text-[#0a66c2] dark:text-[#70b5f9]" /> Connect
+            <a href={DATA.personal.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-5 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 rounded-full text-slate-700 dark:text-slate-300 text-sm font-bold transition-all shadow-sm">
+              <Linkedin size={16} className="text-[#0a66c2] dark:text-[#70b5f9]" /> Connect
             </a>
           </div>
-          <div className="flex flex-col md:flex-row items-center justify-center pt-8 border-t border-slate-100 dark:border-slate-800/50 text-sm font-medium">
+          <div className="flex flex-col md:flex-row items-center justify-center pt-6 border-t border-slate-100 dark:border-slate-800/50 text-xs font-medium">
             <p>© {new Date().getFullYear()} {DATA.personal.name}. All rights reserved.</p>
           </div>
         </div>
