@@ -31,7 +31,7 @@ const DATA = {
     phone: "+966590520182",
     linkedin: "https://www.linkedin.com/in/amer-mosally/",
     nationality: "Taiwanese",
-    summary: "Research-oriented Professional Services Consultant and published author specializing in emerging security paradigms. Co-authored a CRC Press book on Post-Quantum Cryptography and published an IEEE conference paper on enhancing intrusion detection via machine learning. Expert in automating security operations, backed by a strong technical foundation in programming and penetration testing. Currently seeking a Master's in Computer Science to further research in intelligent secure systems."
+    summary: "Research-oriented Cybersecurity Engineer and published author specializing in emerging security paradigms. Co-authored a CRC Press book on Post-Quantum Cryptography and published an IEEE conference paper on enhancing intrusion detection via machine learning. Expert in automating security operations, backed by a strong technical foundation in programming and penetration testing."
   },
   education: [
     {
@@ -59,12 +59,12 @@ const DATA = {
   ],
   experience: [
     {
-      role: "Cybersecurity Professional Services Consultant",
+      role: "Cybersecurity Engineer",
       company: "Ingram Micro",
       period: "Aug 2024 - Present",
       type: "Industry",
       bullets: [
-        "Architected and deployed secure cybersecurity solutions for the Ministry of Health in Saudi Arabia, managing the entire lifecycle from design to optimization.",
+        "Architected and deployed secure cybersecurity solutions for the Ministry of Health, managing the entire lifecycle from design to optimization.",
         "Significantly improved web and network security posture and resilience against cyber threats.",
         "Developed automation workflows using Python and APIs to orchestrate investigative workflows and routine security tasks, reducing manual deployment and response effort by 90%."
       ]
@@ -155,7 +155,7 @@ const DATA = {
     },
     {
       category: "AI & Embedded Systems",
-      items: ["Machine Learning", "PCA", "Jetson Nano", "Edge Computing", "IoT (LoRa)"]
+      items: ["Machine Learning", "PCA", "Jetson Nano", "Edge Computing", "IoT (LoRa)", "ARM Assembly"]
     }
   ],
   projects: [
@@ -452,13 +452,6 @@ export default function App() {
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-8 items-center justify-between">
           
           <div className="flex-1 space-y-6 text-center lg:text-left">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-cyan-100 dark:bg-cyan-500/10 border border-cyan-200 dark:border-cyan-500/20 text-cyan-700 dark:text-cyan-300 text-xs font-bold mb-1">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-500"></span>
-              </span>
-              <span>Available for New Opportunities</span>
-            </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.15]">
               Hi, I'm <br />
@@ -486,7 +479,7 @@ export default function App() {
               </a>
               <div className="flex items-center space-x-1.5 text-slate-500 dark:text-slate-400 px-3 py-2 text-sm font-medium">
                 <MapPin size={16} />
-                <span>Taiwan / Saudi Arabia</span>
+                <span>Taiwan</span>
               </div>
             </div>
           </div>
