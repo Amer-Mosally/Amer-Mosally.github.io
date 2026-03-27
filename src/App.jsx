@@ -200,9 +200,9 @@ const DATA = {
 // --- COMPONENTS ---
 
 const Section = ({ id, title, icon: Icon, children }) => (
-  <section id={id} className="py-24 relative border-b border-slate-200/50 dark:border-slate-800/50 last:border-0 transition-colors duration-300">
-    <div className="max-w-5xl mx-auto px-6 relative z-10">
-      <div className="flex items-center space-x-4 mb-14">
+  <section id={id} className="py-16 md:py-20 relative border-b border-slate-200/50 dark:border-slate-800/50 last:border-0 transition-colors duration-300">
+    <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="flex items-center space-x-4 mb-10 md:mb-12">
         <div className="p-3 bg-cyan-100 dark:bg-cyan-500/10 rounded-xl text-cyan-600 dark:text-cyan-400 border border-cyan-200 dark:border-cyan-500/20 shadow-[0_0_15px_rgba(34,211,238,0.15)] transition-colors duration-300">
           <Icon size={26} strokeWidth={2.5} />
         </div>
@@ -448,7 +448,7 @@ export default function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="pt-32 pb-20 md:pt-48 md:pb-32 px-6 max-w-6xl mx-auto relative z-10">
+      <section id="home" className="pt-32 pb-12 md:pt-40 md:pb-16 px-6 max-w-7xl mx-auto relative z-10">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-8 items-center justify-between">
           
           <div className="flex-1 space-y-8 text-center lg:text-left">
@@ -720,8 +720,8 @@ export default function App() {
       </Section>
 
       {/* Footer */}
-      <footer className="bg-white dark:bg-[#030712] text-slate-500 dark:text-slate-400 py-16 mt-12 border-t border-slate-200 dark:border-slate-900 relative z-10">
-        <div className="max-w-5xl mx-auto px-6 text-center">
+      <footer className="bg-white dark:bg-[#030712] text-slate-500 dark:text-slate-400 py-12 md:py-16 border-t border-slate-200 dark:border-slate-900 relative z-10">
+        <div className="max-w-7xl mx-auto px-6 text-center">
           <div className="inline-flex items-center justify-center p-3 bg-cyan-100 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 rounded-2xl mb-6 shadow-[0_0_15px_rgba(34,211,238,0.15)]">
             <Shield size={32} strokeWidth={1.5} />
           </div>
