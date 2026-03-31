@@ -293,8 +293,8 @@ export default function App() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
-      // Reordered so scroll spy detects sections in visual order: Publications -> Projects -> Skills
-      const sections = ['home', 'education', 'experience', 'publications', 'projects', 'skills', 'certifications', 'awards', 'extracurricular'];
+      // Reordered so scroll spy detects sections in exact visual order
+      const sections = ['home', 'education', 'experience', 'publications', 'skills', 'projects', 'certifications', 'awards', 'extracurricular'];
       const scrollPosition = window.scrollY + 250;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -343,7 +343,7 @@ export default function App() {
           
           {/* Desktop Navigation Links */}
           <div className="hidden lg:flex items-center space-x-1 xl:space-x-2 bg-slate-100/50 dark:bg-slate-800/30 p-1 rounded-full border border-slate-200/50 dark:border-slate-700/50 backdrop-blur-md">
-            {['Home', 'Education', 'Experience', 'Publications', 'Projects'].map((item) => (
+            {['Home', 'Education', 'Experience', 'Publications', 'Skills'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollTo(item.toLowerCase())}
@@ -364,7 +364,7 @@ export default function App() {
                 <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />
               </button>
               <div className="absolute top-full right-0 mt-2 w-48 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-slate-200 dark:border-slate-800 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col p-2 translate-y-2 group-hover:translate-y-0">
-                {['Skills', 'Certifications', 'Awards', 'Extracurricular'].map((item) => (
+                {['Projects', 'Certifications', 'Awards', 'Extracurricular'].map((item) => (
                   <button
                     key={item}
                     onClick={() => scrollTo(item.toLowerCase())}
@@ -413,7 +413,7 @@ export default function App() {
         {/* Mobile Navigation Dropdown */}
         {isMobileMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 w-full bg-white/95 dark:bg-[#030712]/95 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 shadow-2xl px-6 py-4 flex flex-col space-y-1.5 transition-all duration-300 max-h-[80vh] overflow-y-auto">
-            {['Home', 'Education', 'Experience', 'Publications', 'Projects', 'Skills', 'Certifications', 'Awards', 'Extracurricular'].map((item) => (
+            {['Home', 'Education', 'Experience', 'Publications', 'Skills', 'Projects', 'Certifications', 'Awards', 'Extracurricular'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollTo(item.toLowerCase())}
@@ -604,6 +604,27 @@ export default function App() {
         </div>
       </Section>
 
+      {/* Skills Grid */}
+      <Section id="skills" title="Technical Skills" icon={Code}>
+        <div className="grid md:grid-cols-3 gap-5">
+          {DATA.skills.map((skillGroup, idx) => (
+            <div key={idx} className="bg-white/60 dark:bg-slate-900/40 backdrop-blur-md p-5 lg:p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300 hover:border-cyan-200 dark:hover:border-cyan-800/50 group">
+              <h3 className="text-base font-bold text-slate-900 dark:text-white mb-4 flex items-center">
+                <span className="w-6 h-[3px] bg-cyan-500 rounded-full mr-2.5 group-hover:w-10 transition-all duration-300"></span>
+                {skillGroup.category}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {skillGroup.items.map((item, iIdx) => (
+                  <span key={iIdx} className="px-3 py-1 bg-slate-100 dark:bg-[#030712] text-slate-700 dark:text-slate-300 rounded-lg text-xs font-semibold border border-slate-200 dark:border-slate-800 group-hover:border-cyan-500/30 transition-colors duration-300 hover:bg-cyan-50 dark:hover:bg-cyan-900/30 hover:text-cyan-700 dark:hover:text-cyan-300 cursor-default">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
       {/* Projects Section */}
       <Section id="projects" title="Projects & Architecture" icon={FolderGit2}>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5">
@@ -626,27 +647,6 @@ export default function App() {
               <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed flex-grow relative z-10">
                 {project.description}
               </p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* Skills Grid */}
-      <Section id="skills" title="Technical Skills" icon={Code}>
-        <div className="grid md:grid-cols-3 gap-5">
-          {DATA.skills.map((skillGroup, idx) => (
-            <div key={idx} className="bg-white/60 dark:bg-slate-900/40 backdrop-blur-md p-5 lg:p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300 hover:border-cyan-200 dark:hover:border-cyan-800/50 group">
-              <h3 className="text-base font-bold text-slate-900 dark:text-white mb-4 flex items-center">
-                <span className="w-6 h-[3px] bg-cyan-500 rounded-full mr-2.5 group-hover:w-10 transition-all duration-300"></span>
-                {skillGroup.category}
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {skillGroup.items.map((item, iIdx) => (
-                  <span key={iIdx} className="px-3 py-1 bg-slate-100 dark:bg-[#030712] text-slate-700 dark:text-slate-300 rounded-lg text-xs font-semibold border border-slate-200 dark:border-slate-800 group-hover:border-cyan-500/30 transition-colors duration-300 hover:bg-cyan-50 dark:hover:bg-cyan-900/30 hover:text-cyan-700 dark:hover:text-cyan-300 cursor-default">
-                    {item}
-                  </span>
-                ))}
-              </div>
             </div>
           ))}
         </div>
