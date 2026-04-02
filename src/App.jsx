@@ -59,7 +59,7 @@ const DATA = {
   ],
   experience: [
     {
-      role: "Cybersecurity Engineer",
+      role: "Cybersecurity Professional Services Engineer",
       company: "Ingram Micro",
       period: "Aug 2024 - Present",
       type: "Industry",
