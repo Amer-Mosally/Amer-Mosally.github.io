@@ -47,7 +47,7 @@ const DATA = {
       publisher: "IEEE Cyber-AI: International Conference on Cybersecurity and AI-Based Systems",
       date: "Sep 2025", 
       type: "Conference Paper",
-      description: "A peer-reviewed paper presenting a data processing and machine learning approach to improving anomaly-based Intrusion Detection Systems (IDS). The research reduces false positive rates and enhances detection accuracy."
+      description: "Applied PCA-based feature reduction and fast-training machine learning algorithms to optimize anomaly-based Intrusion Detection Systems (IDS), enhancing accuracy rates while ensuring rapid model training."
     },
     {
       title: "Quantum Computing: A Journey into the Next Frontier of Information and Communication Security",
