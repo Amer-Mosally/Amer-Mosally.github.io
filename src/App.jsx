@@ -31,7 +31,7 @@ const DATA = {
     phone: "+966590520182",
     linkedin: "https://www.linkedin.com/in/amer-mosally/",
     nationality: "Taiwanese",
-    summary: "Research-oriented Cybersecurity Engineer and published author specializing in emerging security paradigms. Co-authored a CRC Press book on Post-Quantum Cryptography and published an IEEE conference paper on enhancing intrusion detection via machine learning. Expert in automating security operations, backed by a strong technical foundation in programming and penetration testing."
+    summary: "Research-oriented Cybersecurity Engineer specializing in architecting secure, high-performance systems. Passionate about bridging the gap between practice and theory by developing inherently secure, cloud-native architectures that mitigate the observability-latency tradeoff. Co-authored a CRC Press book on Post-Quantum Cryptography and published an IEEE paper on optimizing IDS accuracy through PCA-based feature reduction."
   },
   education: [
     {
@@ -64,7 +64,7 @@ const DATA = {
       period: "Aug 2024 - Present",
       type: "Industry",
       bullets: [
-        "Architected and deployed secure cybersecurity solutions for the Ministry of Health in Saudi Arabia, managing the entire lifecycle from design to optimization.",
+        "Architected and deployed secure cybersecurity solutions for the Ministry of Health, managing the entire lifecycle from design to optimization.",
         "Significantly improved web and network security posture and resilience against cyber threats.",
         "Developed automation workflows using Python and APIs to orchestrate investigative workflows and routine security tasks, reducing manual deployment and response effort by 90%."
       ]
