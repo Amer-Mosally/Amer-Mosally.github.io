@@ -188,12 +188,6 @@ const DATA = {
       period: "Aug 2021 - May 2022",
       description: "Directed a specialized team responsible for overseeing financial operations and logistics, optimizing resource allocation and supporting strategic committee initiatives."
     },
-    {
-      role: "Science Engagement Lead",
-      organization: "Aramco",
-      period: "Jul 2010 - Sep 2010",
-      description: "Designed and conducted interactive scientific demonstrations, engaging festival attendees and enhancing public understanding of applied science."
-    }
   ]
 };
 
