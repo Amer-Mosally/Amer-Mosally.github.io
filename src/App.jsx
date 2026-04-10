@@ -150,8 +150,8 @@ const DATA = {
       items: ["Penetration Testing", "Vulnerability Assessment", "Endpoint Security", "WAF", "AWS", "GCP", "Docker"]
     },
     {
-      category: "Programming & Automation",
-      items: ["Python", "Java", "C/C++", "Bash", "API Integration", "Streamlit", "Automation Workflows"]
+      category: "Systems & Programming",
+      items: ["Python", "Java", "C/C++", "Linux", "Bash", "API Integration", "Streamlit", "Automation Workflows"]
     },
     {
       category: "AI & Embedded Systems",
