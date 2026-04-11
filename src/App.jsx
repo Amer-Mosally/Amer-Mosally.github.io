@@ -151,11 +151,11 @@ const DATA = {
     },
     {
       category: "Systems & Programming",
-      items: ["Python", "Java", "C/C++", "Linux", "Bash", "API Integration", "Streamlit", "Automation Workflows"]
+      items: ["Python", "Java", "GOlang", "C/C++", "Linux", "Bash", "API Integration", "Streamlit", "Automation Workflows"]
     },
     {
       category: "AI & Embedded Systems",
-      items: ["Machine Learning", "PCA", "Jetson Nano", "Edge Computing", "IoT (LoRa)", "ARM Assembly"]
+      items: ["Machine Learning", "PCA", "Jetson Nano", "Edge Computing", "ARM Assembly"]
     }
   ],
   projects: [
@@ -249,8 +249,8 @@ const TerminalGraphic = () => (
           <span className="text-slate-400 mr-2">$</span>
           <span className="text-slate-700 dark:text-slate-200">cat skills.txt</span>
           <div className="text-blue-600 dark:text-blue-400 ml-2 sm:ml-3 mt-1.5 leading-relaxed">
-            <div className="flex items-center"><ChevronRight size={12} className="mr-1" /> Pentesting</div>
-            <div className="flex items-center"><ChevronRight size={12} className="mr-1" /> Cloud Security</div>
+            <div className="flex items-center"><ChevronRight size={12} className="mr-1" /> Cybersecurity</div>
+            <div className="flex items-center"><ChevronRight size={12} className="mr-1" /> Cloud Computing</div>
             <div className="flex items-center"><ChevronRight size={12} className="mr-1" /> Automation</div>
           </div>
         </div>
@@ -474,7 +474,7 @@ export default function App() {
               </a>
               <div className="flex items-center space-x-1.5 text-slate-500 dark:text-slate-400 px-3 py-2 text-sm font-medium">
                 <MapPin size={16} />
-                <span>Taiwan</span>
+                <span>Taiwan/Saudi Arabia</span>
               </div>
             </div>
           </div>
