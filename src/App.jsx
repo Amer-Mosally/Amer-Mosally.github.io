@@ -31,7 +31,7 @@ const DATA = {
     phone: "+966590520182",
     linkedin: "https://www.linkedin.com/in/amer-mosally/",
     nationality: "Taiwanese",
-    summary: "Research-oriented Cybersecurity Engineer specializing in architecting secure, high-performance systems. Experienced in endpoint security, vulnerability assessment, and automation, with a strong foundation in machine learning and embedded systems. Committed to continuous learning and innovation in the rapidly evolving cybersecurity landscape. Co-authored a CRC Press book on Post-Quantum Cryptography and published an IEEE paper on optimizing IDS accuracy through PCA-based feature reduction. Passionate about bridging the gap between theory and practice by developing inherently secure, cloud-native architectures."
+    summary: "Research-oriented Cybersecurity Engineer specializing in architecting secure, high-performance systems. Experienced in endpoint security, vulnerability assessment, and automation, with a strong foundation in machine learning and embedded systems. Committed to continuous learning and innovation in the rapidly evolving cybersecurity landscape. Co-authored a CRC Press book on Post-Quantum Cryptography and published an IEEE paper on optimizing IDS accuracy through PCA-based feature reduction. Passionate about bridging the gap between theory and practice."
   },
   education: [
     {
@@ -474,7 +474,7 @@ export default function App() {
               </a>
               <div className="flex items-center space-x-1.5 text-slate-500 dark:text-slate-400 px-3 py-2 text-sm font-medium">
                 <MapPin size={16} />
-                <span>Taiwan/Saudi Arabia</span>
+                <span>Taiwan / Saudi Arabia</span>
               </div>
             </div>
           </div>
