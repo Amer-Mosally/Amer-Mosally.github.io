@@ -31,7 +31,7 @@ const DATA = {
     phone: "+966590520182",
     linkedin: "https://www.linkedin.com/in/amer-mosally/",
     nationality: "Taiwanese",
-    summary: "Research-oriented Cybersecurity Engineer specializing in architecting secure, high-performance systems. Experienced in endpoint security, vulnerability assessment, and automation, with a strong foundation in machine learning and embedded systems. Committed to continuous learning and innovation in the rapidly evolving cybersecurity landscape. Co-authored a CRC Press book on Post-Quantum Cryptography and published an IEEE paper on optimizing IDS accuracy through PCA-based feature reduction. Passionate about bridging the gap between theory and practice."
+    summary: "Research-oriented Cybersecurity Engineer specializing in architecting secure, high-performance systems. Experienced in endpoint security, vulnerability assessment, and automation, with a strong foundation in machine learning and embedded systems. Committed to continuous learning and innovation in the rapidly evolving cybersecurity landscape. Co-authored a CRC Press book on Post-Quantum Cryptography and published an IEEE paper on optimizing IDS accuracy through PCA-based feature reduction."
   },
   education: [
     {
