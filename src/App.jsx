@@ -250,8 +250,8 @@ const TerminalGraphic = () => (
           <span className="text-slate-700 dark:text-slate-200">cat skills.txt</span>
           <div className="text-blue-600 dark:text-blue-400 ml-2 sm:ml-3 mt-1.5 leading-relaxed">
             <div className="flex items-center"><ChevronRight size={12} className="mr-1" /> Cybersecurity</div>
-            <div className="flex items-center"><ChevronRight size={12} className="mr-1" /> Cloud Computing</div>
-            <div className="flex items-center"><ChevronRight size={12} className="mr-1" /> Automation</div>
+            <div className="flex items-center"><ChevronRight size={12} className="mr-1" /> Penetration Testing</div>
+            <div className="flex items-center"><ChevronRight size={12} className="mr-1" /> Cloud Security</div>
           </div>
         </div>
 
