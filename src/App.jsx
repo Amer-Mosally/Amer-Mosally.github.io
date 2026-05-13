@@ -38,7 +38,7 @@ const DATA = {
     {
       degree: "Bachelor of Science in Computer Engineering",
       institution: "King Fahd University Of Petroleum & Minerals (KFUPM)",
-      period: "2019 - 2023",
+      period: "2023",
       details: "Major Concentration: Cloud Computing"
     }
   ],
@@ -60,7 +60,7 @@ const DATA = {
   ],
   experience: [
     {
-      role: "Cybersecurity Professional Services Engineer",
+      role: "Cybersecurity Engineer",
       company: "Ingram Micro",
       period: "Aug 2024 - Present",
       type: "Industry",
