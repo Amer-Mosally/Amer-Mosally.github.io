@@ -30,6 +30,7 @@ const DATA = {
     email: "amer.mosally@gmail.com",
     phone: "+966590520182",
     linkedin: "https://www.linkedin.com/in/amer-mosally/",
+    scholar: "https://scholar.google.com/citations?user=Zuv217sAAAAJ&hl=en",
     nationality: "Taiwanese",
     summary: ""
   },
@@ -422,7 +423,7 @@ export default function App() {
             ))}
             
             {/* Mobile Contact Grid */}
-            <div className="grid grid-cols-2 gap-3 mt-4 pt-4 border-t border-slate-200 dark:border-slate-800">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4 pt-4 border-t border-slate-200 dark:border-slate-800">
               <a 
                 href={`mailto:${DATA.personal.email}`}
                 className="flex items-center justify-center px-4 py-2.5 bg-slate-900 dark:bg-cyan-500 text-white dark:text-slate-900 text-sm font-bold rounded-xl transition-all shadow-md"
@@ -436,6 +437,14 @@ export default function App() {
                 className="flex items-center justify-center px-4 py-2.5 bg-[#0a66c2] hover:bg-[#004182] text-white text-sm font-bold rounded-xl transition-colors shadow-md"
               >
                 <Linkedin size={14} className="mr-2" /> LinkedIn
+              </a>
+              <a 
+                href={DATA.personal.scholar}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-white text-sm font-bold rounded-xl transition-colors shadow-md"
+              >
+                <GraduationCap size={14} className="mr-2" /> Scholar
               </a>
             </div>
           </div>
@@ -471,6 +480,10 @@ export default function App() {
               <a href={DATA.personal.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 px-5 py-2.5 bg-white dark:bg-slate-800/50 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-white border border-slate-200 dark:border-slate-700 rounded-full text-sm font-bold transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5 backdrop-blur-sm">
                 <Linkedin size={16} className="text-[#0a66c2] dark:text-[#70b5f9]" />
                 <span>LinkedIn</span>
+              </a>
+              <a href={DATA.personal.scholar} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 px-5 py-2.5 bg-white dark:bg-slate-800/50 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-white border border-slate-200 dark:border-slate-700 rounded-full text-sm font-bold transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5 backdrop-blur-sm">
+                <GraduationCap size={16} className="text-slate-700 dark:text-slate-300" />
+                <span>Google Scholar</span>
               </a>
               <div className="flex items-center space-x-1.5 text-slate-500 dark:text-slate-400 px-3 py-2 text-sm font-medium">
                 <MapPin size={16} />
@@ -714,12 +727,15 @@ export default function App() {
             <Shield size={26} strokeWidth={1.5} />
           </div>
           <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight">Let's build something secure.</h2>
-          <div className="flex justify-center gap-3 mb-8">
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
             <a href={`mailto:${DATA.personal.email}`} className="flex items-center gap-1.5 px-5 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 rounded-full text-slate-700 dark:text-slate-300 text-sm font-bold transition-all shadow-sm">
               <Mail size={16} /> Email Me
             </a>
             <a href={DATA.personal.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-5 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 rounded-full text-slate-700 dark:text-slate-300 text-sm font-bold transition-all shadow-sm">
               <Linkedin size={16} className="text-[#0a66c2] dark:text-[#70b5f9]" /> Connect
+            </a>
+            <a href={DATA.personal.scholar} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-5 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 rounded-full text-slate-700 dark:text-slate-300 text-sm font-bold transition-all shadow-sm">
+              <GraduationCap size={16} /> Google Scholar
             </a>
           </div>
           <div className="flex flex-col md:flex-row items-center justify-center pt-6 border-t border-slate-100 dark:border-slate-800/50 text-xs font-medium">
