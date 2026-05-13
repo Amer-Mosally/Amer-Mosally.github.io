@@ -30,7 +30,7 @@ const DATA = {
     email: "amer.mosally@gmail.com",
     phone: "+966590520182",
     linkedin: "https://www.linkedin.com/in/amer-mosally/",
-    scholar: "https://scholar.google.com/citations?user=Zuv217sAAAAJ&hl=en",
+    scholar: "https://scholar.google.com/citations?user=Zuv217sAAAAJ&hl=en", 
     nationality: "Taiwanese",
     summary: ""
   },
@@ -567,8 +567,8 @@ export default function App() {
                   
                   <ul className="space-y-2 mt-4">
                     {exp.bullets.map((bullet, bIdx) => (
-                      <li key={bIdx} className="flex items-start text-sm text-slate-600 dark:text-slate-300">
-                        <ChevronRight size={16} className="shrink-0 text-cyan-500 mt-0.5 mr-2.5" />
+                      <li key={bIdx} className="flex items-start text-left text-sm text-slate-600 dark:text-slate-300">
+                        <ChevronRight size={16} className="shrink-0 text-cyan-500 mt-[3px] mr-2.5" />
                         <span className="leading-relaxed">{bullet}</span>
                       </li>
                     ))}
@@ -584,28 +584,31 @@ export default function App() {
       <Section id="publications" title="Research & Publications" icon={BookOpen}>
         <div className="grid gap-5">
           {DATA.publications.map((pub, idx) => (
-            <div key={idx} className="bg-white/60 dark:bg-slate-900/40 backdrop-blur-md p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300 group relative overflow-hidden flex flex-col md:flex-row gap-5">
+            <div key={idx} className="bg-white/60 dark:bg-slate-900/40 backdrop-blur-md p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300 group relative overflow-hidden">
               
               {/* Left Accent Bar */}
               <div className="hidden md:block absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-cyan-400 to-blue-600 transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out"></div>
               
-              <div className="md:w-1/4 shrink-0 flex flex-col md:items-start items-start justify-start gap-2.5">
-                <span className="inline-flex px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full text-[11px] font-bold shadow-sm">
-                  {pub.date}
-                </span>
-                <span className="flex items-center gap-1.5 text-cyan-700 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-500/10 px-2.5 py-1 rounded-lg text-xs font-bold border border-cyan-100 dark:border-cyan-500/20">
-                  <FileText size={14} />
-                  {pub.type}
-                </span>
+              <div className="flex flex-col lg:flex-row lg:items-start justify-between mb-3 gap-3 lg:gap-4">
+                <div className="lg:w-3/4">
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-1 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors duration-300">{pub.title}</h3>
+                  <p className="text-xs sm:text-sm font-semibold text-slate-500 dark:text-slate-400 mb-3">{pub.publisher}</p>
+                </div>
+                
+                <div className="flex flex-col items-start lg:items-end gap-2 shrink-0">
+                  <span className="inline-flex px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 uppercase tracking-wider rounded-full text-[11px] font-bold shadow-sm border border-slate-200 dark:border-slate-700/50">
+                    {pub.date}
+                  </span>
+                  <span className="flex items-center gap-1.5 text-cyan-700 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-500/10 px-2.5 py-1 rounded-lg text-[11px] font-bold border border-cyan-100 dark:border-cyan-500/20">
+                    <FileText size={14} />
+                    {pub.type}
+                  </span>
+                </div>
               </div>
               
-              <div className="md:w-3/4">
-                <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors duration-300">{pub.title}</h3>
-                <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-3">{pub.publisher}</p>
-                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                  {pub.description}
-                </p>
-              </div>
+              <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                {pub.description}
+              </p>
             </div>
           ))}
         </div>
