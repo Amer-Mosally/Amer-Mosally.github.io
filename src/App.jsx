@@ -134,8 +134,8 @@ const DATA = {
     }
   ],
   certifications: [
-    { name: "IELTS Academic (Overall Score: 7.0)", issuer: "IELTS", date: "Jun 2025" },
     { name: "CPTS - Certified Penetration Testing Specialist", issuer: "Hack The Box", date: "In Progress" },
+    { name: "IELTS Academic (Overall Score: 7.0)", issuer: "IELTS", date: "Jun 2025" },
     { name: "Trend Vision One Cloud Security Advanced", issuer: "Trend Micro", date: "May 2025" },
     { name: "FortiWeb Administrator", issuer: "Fortinet", date: "Mar 2025" },
     { name: "AWS Certified Solutions Architect Associate", issuer: "Amazon Web Services", date: "Sep 2024" },
@@ -488,7 +488,7 @@ export default function App() {
               </a>
               <div className="flex items-center space-x-1.5 text-slate-500 dark:text-slate-400 px-3 py-2 text-sm font-medium">
                 <MapPin size={16} />
-                <span>Taiwan / Saudi Arabia</span>
+                <span>Saudi Arabia / Taiwan</span>
               </div>
             </div>
           </div>
