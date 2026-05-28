@@ -62,7 +62,7 @@ const DATA = {
     {
       role: "Cybersecurity Engineer",
       company: "Ingram Micro",
-      period: "Aug 2024 - Present",
+      period: "Aug 2024 - Mar 2026",
       type: "Industry",
       bullets: [
         "Architected and deployed secure cybersecurity solutions for the Ministry of Health, managing the entire lifecycle from design to optimization.",
@@ -134,6 +134,7 @@ const DATA = {
     }
   ],
   certifications: [
+    { name: "IELTS Academic (Overall Score: 7.0)", issuer: "IELTS", date: "Jun 2025" },
     { name: "CPTS - Certified Penetration Testing Specialist", issuer: "Hack The Box", date: "In Progress" },
     { name: "Trend Vision One Cloud Security Advanced", issuer: "Trend Micro", date: "May 2025" },
     { name: "FortiWeb Administrator", issuer: "Fortinet", date: "Mar 2025" },
