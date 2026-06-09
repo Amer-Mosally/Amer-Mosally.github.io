@@ -62,7 +62,7 @@ const DATA = {
     {
       role: "Cybersecurity Engineer",
       company: "Ingram Micro",
-      period: "Aug 2024 - Mar 2026",
+      period: "Aug 2024 - Feb 2026",
       type: "Industry",
       bullets: [
         "Architected and deployed secure cybersecurity solutions for the Ministry of Health, managing the entire lifecycle from design to optimization.",
@@ -153,7 +153,7 @@ const DATA = {
     },
     {
       category: "Systems & Programming",
-      items: ["Python", "Java", "GOlang", "C/C++", "Linux", "Bash", "API Integration", "Streamlit", "Automation Workflows"]
+      items: ["Python", "Java", "C/C++", "Linux", "Bash", "API Integration", "Streamlit", "Automation Workflows"]
     },
     {
       category: "AI & Embedded Systems",
