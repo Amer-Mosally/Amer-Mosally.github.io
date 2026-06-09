@@ -28,10 +28,10 @@ const DATA = {
     name: "Amer Mosally",
     headline: "Cybersecurity Engineer & Researcher",
     email: "amer.mosally@gmail.com",
-    phone: "+966590520182",
+    phone: "+966599977723",
     linkedin: "https://www.linkedin.com/in/amer-mosally/",
     scholar: "https://scholar.google.com/citations?user=Zuv217sAAAAJ&hl=en", 
-    nationality: "Taiwanese",
+    nationality: "",
     summary: ""
   },
   education: [
@@ -39,7 +39,7 @@ const DATA = {
       degree: "Bachelor of Science in Computer Engineering",
       institution: "King Fahd University Of Petroleum & Minerals (KFUPM)",
       period: "2023",
-      details: "Major Concentration: Cloud Computing"
+      details: "Major Concentration: Cloud Computing and"
     }
   ],
   publications: [
@@ -71,7 +71,7 @@ const DATA = {
       ]
     },
     {
-      role: "Cybersecurity Engineer Intern",
+      role: "Cybersecurity Engineer Associate",
       company: "Trend Micro",
       period: "Jan 2024 - Jul 2024",
       type: "Industry",
@@ -488,7 +488,7 @@ export default function App() {
               </a>
               <div className="flex items-center space-x-1.5 text-slate-500 dark:text-slate-400 px-3 py-2 text-sm font-medium">
                 <MapPin size={16} />
-                <span>Saudi Arabia / Taiwan</span>
+                <span>Saudi Arabia</span>
               </div>
             </div>
           </div>
