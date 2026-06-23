@@ -37,7 +37,7 @@ const DATA = {
       degree: "Bachelor of Science in Computer Engineering",
       institution: "King Fahd University Of Petroleum & Minerals (KFUPM)",
       period: "2023",
-      details: "Major Concentration: Cloud Computing and"
+      details: "Major Concentration: Cloud Computing"
     }
   ],
   publications: [
