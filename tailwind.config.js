@@ -1,7 +1,16 @@
-
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-  darkMode: 'class', // <--- THIS IS THE MAGIC LINE
-  theme: { extend: {} },
+  darkMode: 'class',
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ["'Inter'", 'system-ui', 'sans-serif'],
+        mono: ["'JetBrains Mono'", 'ui-monospace', 'Consolas', 'monospace'],
+      },
+      transitionProperty: {
+        width: 'width',
+      },
+    },
+  },
   plugins: [],
 }
